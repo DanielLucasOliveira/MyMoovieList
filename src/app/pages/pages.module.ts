@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { TesteComponent } from './teste/teste.component';
+import { RoutingModule } from './routing.module';
 
 
 
@@ -10,10 +10,10 @@ import { TesteComponent } from './teste/teste.component';
   declarations: [
     HomeComponent,
     LoginComponent,
-    TesteComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RoutingModule
   ]
 })
 export class PagesModule { }
