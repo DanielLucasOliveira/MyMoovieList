@@ -4,6 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RoutingModule } from './routing.module';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { ResultSearchCardComponent } from './components/card/result-search-card.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -11,7 +13,9 @@ import { CadastroComponent } from './cadastro/cadastro.component';
   declarations: [
     HomeComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    ResultSearchCardComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,

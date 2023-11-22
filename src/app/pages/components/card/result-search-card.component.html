@@ -1,0 +1,47 @@
+
+<div class="results-all">
+    <div class="result-col" *ngIf="resultadoPesquisa.filmes.length > 0">
+        filmes
+        <div class="result" *ngFor="let filme of resultadoPesquisa.filmes">
+            <a href="/filme/{{filme.id}}/" style="width: 90%; float: left;">
+                <img src="{{filme.urlImagem}}" class="card-image" alt="">
+                <div class="card-name">{{filme.titulo}}</div>
+            </a>
+            <span class="adicionar-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                </svg>
+            </span>
+        </div>
+    </div>
+    
+    <div class="result-col" *ngIf="resultadoPesquisa.series.length > 0">
+        series
+        <div class="result" *ngFor="let serie of resultadoPesquisa.series">
+            <a href="/serie/{{serie.id}}/">
+                <img src="{{serie.urlImagem}}" class="card-image" alt="">
+                <div class="card-name">{{serie.titulo}}</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="result-col" *ngIf="resultadoPesquisa.empresas.length > 0">
+        empresa
+        <div class="result" *ngFor="let empresa of resultadoPesquisa.empresas">
+            <a href="/pessoa/{{empresa.id}}/">
+                <img src="{{empresa.urlImagem}}" class="card-image" alt="">
+                <div class="card-name">{{empresa.nome}}</div>
+            </a>
+        </div>
+    </div>
+    
+    <div class="result-col" *ngIf="resultadoPesquisa.pessoas.length > 0">
+        pessoa
+        <div class="result" *ngFor="let pessoa of resultadoPesquisa.pessoas">
+            <a href="/pessoa/{{pessoa.id}}/">
+                <img src="{{pessoa.urlImagem}}" class="card-image" alt="">
+                <div class="card-name">{{pessoa.nome}}</div>
+            </a>
+        </div>
+    </div>
+</div>
