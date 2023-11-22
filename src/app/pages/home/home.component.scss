@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: rgb(35, 7, 37);;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    height: 60px;
+}
+
+.icon, .navigation{
+    width: 45%;
+    display: inline-block;
+}
+
+.navigation{
+    margin-left: 70px;
+}
+
+.icon{
+    margin-right: 15px;
+
+    h1{
+        margin-left: -5000px ;
+    }
+}
+
+.login i{ 
+    font-size: 30px;
+    color: rgb(148, 18, 148);
+    float: inline-end;
+    margin-left: 30px;
+}
+
+nav{
+    display: inline;
+}
+
+nav ul {
+    float: inline-end;
+    list-style: none;
+    margin: 10px 10px 10px 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 30px;
+    :hover{
+        color: #fff;
+    }
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(148, 18, 148);
+    font-weight: bold;
+
+    :hover{
+        color: #fff;
+    }
+}
+
+
+
+.main-content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: rgb(35, 7, 37);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
