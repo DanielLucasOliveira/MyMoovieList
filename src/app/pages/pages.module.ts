@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RoutingModule } from './routing.module';
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 
 
@@ -10,6 +11,7 @@ import { RoutingModule } from './routing.module';
   declarations: [
     HomeComponent,
     LoginComponent,
+    CadastroComponent
   ],
   imports: [
     CommonModule,
