@@ -8,11 +8,11 @@ import { ListCardShow } from 'src/app/dto/list-card-show';
 import { CardService } from 'src/app/services/card.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'quickseach',
+  templateUrl: './quicksearch.component.html',
+  styleUrls: ['./quicksearch.component.scss']
 })
-export class NavbarComponent {
+export class QuickSearchComponent {
   listaCardShow = [] as ListCardShow[];
   search: string | undefined;
   timeoutId: any = 0;

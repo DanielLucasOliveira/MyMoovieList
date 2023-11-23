@@ -5,7 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { RoutingModule } from './routing.module';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ResultSearchCardComponent } from './components/card/result-search-card.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { QuickSearchComponent } from './components/quicksearch/quicksearch.component';
 
 
 
@@ -15,7 +15,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     CadastroComponent,
     ResultSearchCardComponent,
-    NavbarComponent
+    QuickSearchComponent
   ],
   imports: [
     CommonModule,

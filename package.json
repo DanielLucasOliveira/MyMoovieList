@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
     "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.11.2",
     "jquery": "^3.7.1",
     "ng": "^0.0.0",
     "popper.js": "^1.16.1",
@@ -28,7 +29,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.0.2",
-    "@angular/cli": "~16.0.2",
+    "@angular/cli": "^16.2.10",
     "@angular/compiler-cli": "^16.0.0",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.6.0",
