@@ -1,0 +1,73 @@
+body{
+    font-family: Overpass,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    font-size: 1.5rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+.results-all{
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 30px 60px;
+}
+
+.result{
+    &:hover {
+        background-color: #3DB4F2;
+        .adicionar-item {
+            visibility: visible !important;
+        }
+    }
+    padding: 10px 20px;
+    height: 70px;
+}
+
+.result-col{
+    width: 430px;
+    position: relative;
+}
+
+.card-image{
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 3px;
+    width: 40px;
+    height: 50px;
+}
+
+.card{
+    &:hover{
+        color: #fff;
+    }
+    display: grid;
+    grid-template-columns: 40px auto;
+    align-items: center;
+    transition: color .15s;
+    color: #a0b1c5;
+    background-color: transparent;
+    border: none;
+}
+
+.card-name{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 10px;
+}
+
+.adicionar-item{
+    &:hover{
+        color: aliceblue;
+    }
+    visibility: hidden;
+    position: relative;
+    bottom: -18%;
+}
+
+.info{
+    font-size: 1.2rem;
+    color: rgb(114,138,161);
+}
