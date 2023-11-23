@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RoutingModule } from './routing.module';
 import { CadastroComponent } from './cadastro/cadastro.component';
-import { ResultSearchCardComponent } from './components/card/result-search-card.component';
+import { ResultSearchCardComponent } from './components/result-search-card/result-search-card.component';
 import { QuickSearchComponent } from './components/quicksearch/quicksearch.component';
 
 
