@@ -1,14 +1,17 @@
+body{
+    font-family: Overpass,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    font-size: 1.5rem;
+}
+
 a{
-    display: grid;
-    grid-template-columns: 40px auto;
-    align-items: center;
     text-decoration: none;
-    transition: color .15s;
 }
 
 .results-all{
     display: grid;
-    grid-template-columns: auto auto auto;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 30px 60px;
 }
 
 .result{
@@ -23,9 +26,7 @@ a{
 }
 
 .result-col{
-    background-color: #151f2e;
     width: 430px;
-    border-radius: 5px;
     position: relative;
 }
 
@@ -36,6 +37,19 @@ a{
     border-radius: 3px;
     width: 40px;
     height: 50px;
+}
+
+.card{
+    &:hover{
+        color: #fff;
+    }
+    display: grid;
+    grid-template-columns: 40px auto;
+    align-items: center;
+    transition: color .15s;
+    color: #a0b1c5;
+    background-color: transparent;
+    border: none;
 }
 
 .card-name{
@@ -51,4 +65,9 @@ a{
     visibility: hidden;
     position: relative;
     bottom: -18%;
+}
+
+.info{
+    font-size: 1.2rem;
+    color: rgb(114,138,161);
 }

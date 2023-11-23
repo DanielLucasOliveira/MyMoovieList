@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CardMultiBuscaDTO } from 'src/app/dto/card-multi-busca-dto';
+import { ListCardShow } from 'src/app/dto/list-card-show';
 
 @Component({
   selector: 'result-search',
@@ -8,5 +8,5 @@ import { CardMultiBuscaDTO } from 'src/app/dto/card-multi-busca-dto';
 })
 export class ResultSearchCardComponent {
   @Input()
-  resultadoPesquisa!: CardMultiBuscaDTO;
+  resultadoPesquisa!: ListCardShow[];
 }
