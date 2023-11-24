@@ -1,4 +1,4 @@
-interface TmdbCabecalhoDTO<T> {
+export interface TmdbCabecalhoDTO<T> {
     page: number;
     results: T[];
     totalPages: number;
