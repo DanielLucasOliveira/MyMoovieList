@@ -9,6 +9,8 @@ import { QuickSearchComponent } from './components/quicksearch/quicksearch.compo
 import { AddToListComponent } from './components/add-to-list/add-to-list.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { GetListComponent } from './components/get-list/get-list.component';
+import { FormsModule } from '@angular/forms';
+import { UserPageComponent } from './user-page/user-page.component';
 
 
 @NgModule({
@@ -20,11 +22,13 @@ import { GetListComponent } from './components/get-list/get-list.component';
     QuickSearchComponent,
     AddToListComponent,
     ModalComponent,
-    GetListComponent
+    GetListComponent,
+    UserPageComponent
   ],
   imports: [
     CommonModule,
-    RoutingModule
+    RoutingModule,
+    FormsModule,
   ]
 })
 export class PagesModule { }

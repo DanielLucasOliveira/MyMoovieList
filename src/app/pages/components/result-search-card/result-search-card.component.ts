@@ -21,7 +21,7 @@ export class ResultSearchCardComponent {
 
   validaResultadoAdicionar(){
     this.mostrarAddList = false;
-    setTimeout(() => { this.resultadoBotaoAdicionar = '' }, 1000);
+    setTimeout(() => { this.resultadoBotaoAdicionar = '' }, 5000);
     return this.resultadoBotaoAdicionar != 'erro' && this.resultadoBotaoAdicionar != '';
   }
 }
