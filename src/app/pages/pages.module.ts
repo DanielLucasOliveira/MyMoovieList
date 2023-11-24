@@ -11,6 +11,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { GetListComponent } from './components/get-list/get-list.component';
 import { FormsModule } from '@angular/forms';
 import { UserPageComponent } from './user-page/user-page.component';
+import { ActivatedRoute } from '@angular/router';
 
 
 @NgModule({

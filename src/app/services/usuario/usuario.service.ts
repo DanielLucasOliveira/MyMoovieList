@@ -24,4 +24,8 @@ export class UsuarioService {
   getUsuario(emailUsuario: string): Observable<Usuario>{
     return this.httpClient.get<Usuario>(`${this.baseUrl}/login`, {params: {email: emailUsuario}})
   }
+
+  getByID(id : number): Observable<Usuario>{
+    return this.httpClient.get<Usuario>(`${this.baseUrl}/currentUser`, {params: {id : id}})
+  }
 }

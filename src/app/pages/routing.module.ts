@@ -23,7 +23,8 @@ const routes: Routes = [
     {
         path: 'userPage/:idSession',
         component: UserPageComponent
-    }
+    },
+    
 ];
 
 @NgModule({

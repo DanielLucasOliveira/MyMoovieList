@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(73,5,68,1) 86%);
+}
+
+header {
+    background-color: rgb(35, 7, 37);
+    color: #807a7a;
+    padding: 10px;
+    height: 150px;
+    .icon{
+        font-size: 100px;
+        margin-left: 30px;
+        color: #807a7a;
+    }
+
+    .usuario{
+        font-size: 20px;
+        font-weight: bold;
+        margin-left: 20px;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+}
+
+.menu{
+    width: 100%;
+    background-color: rgb(44, 28, 44);
+    display: inline-flex;
+    justify-content: center;
+    button{
+        background: none;
+        border: none;
+        margin: 0 15px 0 0;
+        color: #807a7a;
+
+    }
+    .active{
+        color: blueviolet;
+    }
+    :hover{
+        color: blueviolet;
+    }
+}
+
+.navigation{
+    width: 100%;
+}
+
+
+
+.login i{ 
+    font-size: 30px;
+    color: rgb(148, 18, 148);
+    float: inline-end;
+    margin-left: 30px;
+}
+
+nav{
+    display: inline;
+}
+
+nav ul {
+    float: inline-end;
+    list-style: none;
+    margin: 10px 10px 10px 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 30px;
+    :hover{
+        color: #fff;
+    }
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(148, 18, 148);
+    font-weight: bold;
+
+    :hover{
+        color: #fff;
+    }
+}
+
+
+
+.main-content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: rgb(35, 7, 37);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
