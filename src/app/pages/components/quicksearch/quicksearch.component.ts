@@ -1,24 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CardEmpresa } from 'src/app/dto/card-empresa';
 import { CardFilmeSerie } from 'src/app/dto/card-filme-serie';
 import { CardMultiBuscaDTO } from 'src/app/dto/card-multi-busca-dto';
 import { CardPessoa } from 'src/app/dto/card-pessoa';
 import { CardShow } from 'src/app/dto/card-show';
 import { ListCardShow } from 'src/app/dto/list-card-show';
-import { CardService } from 'src/app/services/card.service';
+import { CardService } from 'src/app/services/card/card.service';
 
 @Component({
   selector: 'quickseach',
   templateUrl: './quicksearch.component.html',
   styleUrls: ['./quicksearch.component.scss']
 })
-export class QuickSearchComponent {
+export class QuickSearchComponent{
   listaCardShow = [] as ListCardShow[];
   search: string | undefined;
   timeoutId: any = 0;
 
-  constructor(private cardService: CardService){};
-
+  constructor(private cardService: CardService){}
+  
   getCardsBuscaTodos(event: any){
     clearTimeout(this.timeoutId);
     this.timeoutId = setTimeout(()=>{

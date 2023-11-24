@@ -6,6 +6,8 @@ import { RoutingModule } from './routing.module';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ResultSearchCardComponent } from './components/result-search-card/result-search-card.component';
 import { QuickSearchComponent } from './components/quicksearch/quicksearch.component';
+import { AddToListComponent } from './components/add-to-list/add-to-list.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 
@@ -15,7 +17,9 @@ import { QuickSearchComponent } from './components/quicksearch/quicksearch.compo
     LoginComponent,
     CadastroComponent,
     ResultSearchCardComponent,
-    QuickSearchComponent
+    QuickSearchComponent,
+    AddToListComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,

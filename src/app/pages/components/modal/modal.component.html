@@ -1,0 +1,7 @@
+<ng-container *ngIf="mostrar">
+    <ng-container *ngIf="mostrar ? configurarModal() : false"></ng-container>
+    <div class="conteudo-modal">
+      <ng-content></ng-content>
+    </div>
+    <div (click)="toggle()" class="cobertura"></div>
+  </ng-container>

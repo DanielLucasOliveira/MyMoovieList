@@ -1,0 +1,35 @@
+<div id="adicionarItem">
+
+  <div class="item-header">
+    <img src="{{cardItem?.urlImagem}}" class="img-item" alt="">
+    <div class="title" >{{cardItem?.nome}}</div>
+    <button class="save-btn" (click)="adionarItem()">Save</button>
+  </div>
+  <div class="item-content">
+    <div class="row">
+      <div class="col-3">
+        <label for="listaSelect" class="form-label">Lista</label>
+          <select id="listaSelect" class="form-select" [value]="listaSelecionada">
+            <option value="0">listas nao encontradas</option>
+          </select>
+      </div>
+      <div class="col-3">
+        <label for="disabledTextInput" class="form-label">Score</label>
+        <input type="number" max="10" min="1" name="score" class="form-control" [value]="criandoItem.avaliacao">
+      </div>
+      <div class="col-3">
+        <label for="disabledTextInput" class="form-label">Status</label>
+        <select id="statusSelect" class="form-select" [value]="criandoItem.status">
+          <option value="watching">Assistindo</option>
+          <option value="completed">Completo</option>
+          <option value="dropped">Dropado</option>
+          <option value="plan-to-watch">Planeja Assistir</option>
+        </select>
+      </div>
+    </div>
+    <div class="" >
+      <div class="form-label">Comentários</div>
+      <textarea autocomplete="off" class="item-input-textarea" name="comentario" [value]="criandoItem.comentario"></textarea>
+    </div>
+  </div>
+</div>

@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent{
 
+  mostrarQuickSearch: boolean = false;
+
+  abreBarraPesquisa(){
+    this.mostrarQuickSearch = true;
+  }
 }

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { CardMultiBuscaDTO } from '../dto/card-multi-busca-dto';
+import { CardMultiBuscaDTO } from '../../dto/card-multi-busca-dto';
 import { Observable, throwError, retry, catchError } from 'rxjs'
-import { CardFilmeSerie } from '../dto/card-filme-serie';
-import { GlobalVariable } from '../global-variable';
+import { CardFilmeSerie } from '../../dto/card-filme-serie';
+import { GlobalVariable } from '../../global-variable';
 
 @Injectable({
   providedIn: 'root'
