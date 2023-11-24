@@ -8,7 +8,7 @@ import { ResultSearchCardComponent } from './components/result-search-card/resul
 import { QuickSearchComponent } from './components/quicksearch/quicksearch.component';
 import { AddToListComponent } from './components/add-to-list/add-to-list.component';
 import { ModalComponent } from './components/modal/modal.component';
-
+import { GetListComponent } from './components/get-list/get-list.component';
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import { ModalComponent } from './components/modal/modal.component';
     ResultSearchCardComponent,
     QuickSearchComponent,
     AddToListComponent,
-    ModalComponent
+    ModalComponent,
+    GetListComponent
   ],
   imports: [
     CommonModule,

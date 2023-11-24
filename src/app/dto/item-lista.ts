@@ -5,4 +5,5 @@ export interface ItemLista {
     avaliacao: number;
     status: string;
     idTmdb: string;
+    urlImagem: string;
 }

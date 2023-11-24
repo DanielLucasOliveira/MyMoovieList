@@ -1,0 +1,33 @@
+<div>
+    <div class="lista-header" style="background-color: #151F2E; color: #00719E;">
+        <div class="row">
+            <div class="col col-4 header-element">
+                <h3>{{nrItensLista}}</h3>
+                <p>ITENS NESTA LISTA</p>
+            </div>
+            <div class="col col-4 header-element">
+                <h3>{{avaliacaoMedia}}</h3>
+                AVALICAÇÃO MÉDIA DOS ITENS
+            </div>
+            <div class="col col-4 header-element">
+                <h3>{{duracatoTotal}}</h3>
+                DURAÇÃO TOTAL
+            </div>
+        </div>
+    </div>
+    <div class="lista-content">
+            <div *ngFor="let item of lista.itens" class="item">  
+                <div class="card">
+                    <div class="card-bg">
+                        <img width="240px"  height="320px" src="{{item.urlImagem}}" alt=""/>
+                    </div>
+                    <div class="card-info">
+                        <h3>{{item.nome}}</h3>
+                        <p>score: {{item.avaliacao}}</p>
+                        <p>status: {{item.status}}</p>
+                    </div>
+                </div>
+            </div>
+            
+    </div>
+</div>

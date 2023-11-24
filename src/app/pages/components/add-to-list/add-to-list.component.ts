@@ -12,7 +12,7 @@ export class AddToListComponent implements OnInit {
 
   usuario: any;
   listaSelecionada: number = 4;
-  criandoItem: ItemLista = {id: null, nome: '', comentario: '', avaliacao: 1, status: 'watching', idTmdb: ''};
+  criandoItem: ItemLista = {id: null, nome: '', comentario: '', avaliacao: 1, status: 'watching', idTmdb: '', urlImagem: ''};
   @Input() cardItem!: CardShow | undefined;
   @Input() resultadoBotaoAdicionar!: string;
   @Output() resultadoBotaoAdicionarChange: EventEmitter<string> = new EventEmitter<string>();
@@ -27,10 +27,10 @@ export class AddToListComponent implements OnInit {
   adionarItem(){
     if(this.cardItem != null){
       this.criandoItem.idTmdb = this.cardItem.id + '';
-      this.criandoItem.nome = this.cardItem.nome
+      this.criandoItem.nome = this.cardItem.nome;
+      this.criandoItem.urlImagem = this.cardItem.urlImagem;
     }
-
-    console.log(this.criandoItem)
+    console.log('item criado: ' + this.criandoItem)
     try {
       this.listaService.adicionarItem(this.listaSelecionada, Array.of(this.criandoItem), 'sessionid').subscribe((resultado: string) => {
         this.resultadoBotaoAdicionar = `${this.cardItem?.nome} adicionado. lista atualizada`;
