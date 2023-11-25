@@ -34,6 +34,7 @@ export class UserPageComponent implements OnInit {
 
   getID(){
     this.sessionId = this.route.snapshot.paramMap.get('idSession');
+    return Number(this.sessionId);
   }
 
   isVisaoGeral(){

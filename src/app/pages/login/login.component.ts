@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit{
     this.userService.getUsuario(user.email.toString()).subscribe((userCadastrado) => {
       const usuario = userCadastrado
       if(user.senha === usuario.senha){
-        this.localStorageService.setUsuario(user)
         this.router.navigate([`userPage/${usuario.id}`])
       } else {
         return alert('Falha no login')

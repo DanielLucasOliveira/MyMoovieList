@@ -11,6 +11,7 @@ import { ListaService } from 'src/app/services/lista/lista.service';
 })
 export class GetListComponent implements OnInit {
   @Input() idLista!: number;
+  @Input() idUsuario!: number;
   lista!: ListaDto;
   nrItensLista!: number;
   avaliacaoMedia!: number;
