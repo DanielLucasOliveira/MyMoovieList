@@ -18,7 +18,8 @@ export class UserPageComponent implements OnInit {
   listaAtual :number = 0;
 
   constructor(private userService : UsuarioService, private route : ActivatedRoute, private router: Router,
-    private createListService: CreateListService) {
+    private createListService: CreateListService,
+    private listaService: ListaService,) {
   }
 
   openModalCreateList(id:number):void{
