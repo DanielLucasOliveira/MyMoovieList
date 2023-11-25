@@ -25,7 +25,7 @@
 </div>
 
 <app-modal [(mostrar)]="mostrarAddList" [width]="'100%'">
-    <add-to-list [cardItem]="cardAtual" [(resultadoBotaoAdicionar)]="resultadoBotaoAdicionar" [criandoItem]="itemCriando"></add-to-list>
+    <add-to-list [cardItem]="cardAtual" [(mostrar)]="mostrarAddList" [(resultadoBotaoAdicionar)]="resultadoBotaoAdicionar" [criandoItem]="itemCriando"></add-to-list>
 </app-modal>
 
 <ng-container *ngIf="resultadoBotaoAdicionar ? validaResultadoAdicionar() : false">

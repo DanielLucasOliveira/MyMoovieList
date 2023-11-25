@@ -1,8 +1,4 @@
 /* create_list.component.css */
-.modal-body{
-  left: 15%;
-}
-
 label {
   margin-bottom: 25px;
 }
@@ -24,10 +20,16 @@ button:hover {
 }
 
 #adicionarLista {
+  margin-left: 25%;
+  margin-top: 10%;
   position: absolute;
   padding: 24px;
   width: 1000px;
   height: 400px;
   color: silver;
   background: #180519;
+}
+
+.leave-btn{
+  margin-left: 20px;
 }
