@@ -4,18 +4,9 @@ body {
     padding: 0 0 10px 0;
     height: auto;
     background: linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(104,43,140,1) 59%, rgba(110,0,142,1) 92%);
+    min-height: 100%;
 }
 
-
-
-
-header {
-    background-color: rgb(35, 7, 37);;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    height: 110px;
-}
 
 .logo{
     margin-left: -95%;
@@ -83,6 +74,7 @@ nav a {
     padding-bottom: 30px;
     opacity: 0.8;
     max-height: 95%;
+
     color: darkgray;
     h2{
         max-width: 500px;
