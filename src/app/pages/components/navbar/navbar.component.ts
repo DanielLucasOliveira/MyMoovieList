@@ -20,7 +20,6 @@ export class NavbarComponent implements OnInit {
 
   deslogarUsuario(){
     this.localStorageService.deslogar();
-    window.location.reload();
   }
 
   isLogado(){

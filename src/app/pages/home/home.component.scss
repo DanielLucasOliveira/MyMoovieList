@@ -4,18 +4,9 @@ body {
     padding: 0 0 10px 0;
     height: auto;
     background: linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(104,43,140,1) 59%, rgba(110,0,142,1) 92%);
+    min-height: 100%;
 }
 
-
-
-
-header {
-    background-color: rgb(35, 7, 37);;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    height: 110px;
-}
 
 .logo{
     margin-left: -95%;
@@ -82,12 +73,13 @@ nav a {
     margin: 20px auto;
     padding-bottom: 30px;
     opacity: 0.8;
-    min-height: 75%;
     max-height: 95%;
+
     color: darkgray;
     h2{
         max-width: 500px;
         color: linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(104,43,140,1) 59%, rgba(110,0,142,1) 92%);
+        margin: auto;
     }
 }
 
@@ -96,6 +88,35 @@ nav a {
     background-color: #312e33;
     border-radius: 8px;
     padding-top: 30px;
+    min-height: 750px;
+}
+
+.populares{
+    text-align: center;
+}
+
+.populares img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.populares ul {
+    padding: 10px;
+    list-style: none;
+    max-width: 300px;
+    min-width: 300px;
+    margin: auto;
+}
+
+.lista-populares {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.titulo{
+    margin-top: 30px;
+    font-size: 17px;
 }
 
 footer {

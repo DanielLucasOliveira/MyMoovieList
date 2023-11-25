@@ -15,30 +15,16 @@
                 justify-items: center;
                 text-align: center;
                 display: grid; margin: 50px 0 20px 0;">
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
-            <h2>Aqui você monta sua lista podendo observar vários detalhes dos seus filmes e séries favoritos!!</h2>
+            <div class="populares">
+                <h2>Filmes Populares</h2>
+                <div class="lista-populares">
+                    <ul *ngFor="let filmes of populares">
+                        <li><img src='{{filmes.urlCapa}}'alt=""></li>
+                        <li class="titulo">{{filmes.titulo}}</li>
+                    </ul>
+                </div>
+
+            </div>
 
         </div>
     </div>

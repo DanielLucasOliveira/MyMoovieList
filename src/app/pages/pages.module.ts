@@ -15,6 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CreateListComponent } from './components/create_list/create_list.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
+import { DetailMovieComponent } from './detail-movie/detail-movie.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
     UserPageComponent,
     CreateListComponent,
     NavbarComponent,
+    DetailMovieComponent,
     EditarPerfilComponent
   ],
   imports: [
