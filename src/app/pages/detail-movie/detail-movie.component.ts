@@ -12,6 +12,7 @@ import { CardShow } from 'src/app/dto/card-show';
 export class DetailMovieComponent implements OnInit {
   filme!: DetalheFilmeDTO;
   total: any;
+  totalCast: any;
   cardAtual!: CardShow;
   mostrarAddList: boolean = false;
   @ViewChildren(AddToListComponent) addToList!: QueryList<AddToListComponent>
@@ -23,6 +24,7 @@ export class DetailMovieComponent implements OnInit {
       this.detalheService.detalharFilme(Number.parseInt(idMovie)).subscribe((result: DetalheFilmeDTO) => {
         this.filme = result;
         this.total = Object.keys(this.filme.diretoresEscritores)
+        this.totalCast = Object.keys(this.filme.elencoPrincipal)
       });
   }
 }

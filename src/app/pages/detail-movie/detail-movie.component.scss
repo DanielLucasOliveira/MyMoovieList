@@ -1,15 +1,15 @@
 .header{
-    display: block; 
+    display: flex; 
     background-repeat: no-repeat; 
     background-size: cover; 
     background-position-x: center; 
     background-position-y: center;
-    height: 400px;
+    height: 550px;
 }
 .main{
     background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(73,5,68,1) 86%);
     width: auto;
-    height: 1600px;
+
 }
 .content{
     display: grid;
@@ -22,20 +22,20 @@
     background-color: rgb(44, 28, 44);
     border-radius: 2px;
     box-shadow: 0 0 29px rgba(49,54,68,.25);
-    margin-top: 15px;
+    // margin-top: 15px;
     width: 100%;
-    height: auto;
+    height: 550px;
 }
 
 .sidebar{
-    // background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(73,5,68,1) 86%);
     width: 308px;
-    height: 1000px;
+    height: 1100px;
     .capa-wrapt, .card-dois{
         margin-left: 20px;
         position: relative;
         padding: 5%;
     }
+    overflow: auto;
 }
 
 .capa-wrapt{
@@ -43,7 +43,7 @@
 }
 
 .card-info{
-    margin-top: 600px;
+    margin-top: 710px;
     // background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(73,5,68,1) 86%);
     width: 215px;
     padding: 10px;
@@ -57,6 +57,8 @@
         margin: 20px 0 0 30px;
         color: rgb(166, 167, 168);
     }
+    display: inline-flex;
+    overflow: auto;
 }
 
 .staff{
