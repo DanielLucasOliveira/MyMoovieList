@@ -6,6 +6,7 @@ import { CreateListService } from 'src/app/services/create_list.service';
 import { ListaService } from 'src/app/services/lista/lista.service';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { QuickSearchComponent } from '../components/quicksearch/quicksearch.component';
+import { LocalStorageService } from 'src/app/services/localstorage/local-storage.service';
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.component.html',
@@ -20,10 +21,11 @@ export class UserPageComponent implements OnInit {
   mostrarQuickSearch: boolean = false;
   mostrarCriarLista: boolean = false;
   resultadoCriarLista!: string;
+  hasPrivilegio: boolean = false;
   @ViewChildren(QuickSearchComponent) quickSearch!: QueryList<QuickSearchComponent>
 
   constructor(private userService : UsuarioService, private route : ActivatedRoute, private router: Router,
-    private createListService: CreateListService, private listaService: ListaService,) {
+    private createListService: CreateListService, private listaService: ListaService, private localStorageService: LocalStorageService) {
 
   }
 
@@ -33,12 +35,19 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getID();
+    this.validarAcessoUsuario();
     this.userService.getByID(this.sessionId).subscribe((user) => {
       this.usuario = user
       this.listaService.visualizarListasUsuario(this.sessionId).subscribe((result: ListaDto[]) => {
         this.listas = result;
       });
     });
+  }
+
+  validarAcessoUsuario(){
+    if(this.getID() == this.localStorageService.getUsuario().id){
+      this.hasPrivilegio = true;
+    }
   }
 
   atualizarListas(myInterval: any){

@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserPageComponent } from './user-page/user-page.component';
 import { ActivatedRoute } from '@angular/router';
 import { CreateListComponent } from './components/create_list/create_list.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { CreateListComponent } from './components/create_list/create_list.compon
     ModalComponent,
     GetListComponent,
     UserPageComponent,
-    CreateListComponent
+    CreateListComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
