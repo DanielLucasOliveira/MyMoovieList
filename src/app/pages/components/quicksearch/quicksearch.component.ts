@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs';
 import { CardEmpresa } from 'src/app/dto/card-empresa';
@@ -19,6 +19,8 @@ export class QuickSearchComponent{
   search: string | undefined;
   timeoutId: any = 0;
   searchControl: FormControl;
+  @Input() mostrar: boolean = false;
+  @Output() mostrarChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   
   constructor(private cardService: CardService){ 
     this.searchControl = new FormControl();
@@ -33,6 +35,11 @@ export class QuickSearchComponent{
       this.getCardsBuscaTodos(res);
     });
     this.listaCardShow = [];
+  }
+
+  fechar(){
+    this.mostrar = false;
+    this.mostrarChange.emit(this.mostrar);
   }
 
   getCardsBuscaTodos(busca: string){    

@@ -37,7 +37,7 @@
 
     <section class="main-content">
         <ng-container *ngIf="listaAtual > 0">
-            <app-get-list [idLista]="listaAtual" [idUsuario]="getID()"></app-get-list>
+            <app-get-list [idLista]="listaAtual" [idUsuario]="getID()" [hasPrivilegio]="hasPrivilegio"></app-get-list>
         </ng-container>
     </section>
 

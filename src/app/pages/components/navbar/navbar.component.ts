@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit {
 
   abreBarraPesquisa(){
     this.resetQuickSearch();
-    this.mostrarQuickSearch = true;
+    this.mostrarQuickSearch = !this.mostrarQuickSearch;
   }
 
   public resetQuickSearch(): void {

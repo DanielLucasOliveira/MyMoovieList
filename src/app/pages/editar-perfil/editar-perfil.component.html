@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Cadastro</title>
+</head>
+<body>
+    <div class="container">
+        <form action="" method="post" (ngSubmit)="validarSenha(user)">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required [(ngModel)]="user.nome">
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required [(ngModel)]="user.email" disabled>
+
+            <label for="senha">Senha atual:</label>
+            <input type="password" id="senha" name="senha" required [(ngModel)]="user.senha">
+
+            <label for="senha">Nova senha:</label>
+            <input type="password" id="senha" name="senha" required [(ngModel)]="user.novaSenha">
+            
+            <label for="confirmation">Confirmar senha:</label>
+            <input type="password" id="confirmation" name="confirmation" required [(ngModel)]="user.novaSenhaConfirmation">
+
+            <input type="submit" value="Atualizar Cadastro">
+        </form>
+    </div>
+</body>
+</html>

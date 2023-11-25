@@ -21,6 +21,7 @@
                             <button class="dropbtn"><i class="bi bi-person" style="font-size: 1.73em;"></i></button>
                             <div class="dropdown-content">
                               <a routerLink="/login">perfil</a>
+                              <a routerLink="/editar">editar perfil</a>
                               <a (click)="deslogarUsuario()"><i class="bi bi-box-arrow-right"></i> logout</a>
                             </div>
                           </div>
@@ -37,4 +38,4 @@
   </nav>
 
 
-<app-modal [(mostrar)]="mostrarQuickSearch"> <quickseach></quickseach> </app-modal>
+<app-modal [(mostrar)]="mostrarQuickSearch"> <quickseach [(mostrar)]="mostrarQuickSearch"></quickseach> </app-modal>

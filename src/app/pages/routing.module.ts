@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { UserPageComponent } from './user-page/user-page/user-page.component';
 import { DetailMovieComponent } from './detail-movie/detail-movie.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 
 const routes: Routes = [
     {
@@ -28,7 +29,11 @@ const routes: Routes = [
     {
         path: 'filme/:idFilme/:nomeFilme',
         component: DetailMovieComponent
-    }
+    },
+    {
+        path: 'editar',
+        component: EditarPerfilComponent
+    },
     
 ];
 
