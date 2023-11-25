@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
-import { UserPageComponent } from './user-page/user-page.component';
+import { UserPageComponent } from './user-page/user-page/user-page.component';
 import { DetailMovieComponent } from './detail-movie/detail-movie.component';
 
 const routes: Routes = [

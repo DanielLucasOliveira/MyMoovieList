@@ -5,7 +5,7 @@ import { ListaDto } from 'src/app/dto/lista-dto';
 import { ListaService } from 'src/app/services/lista/lista.service';
 import { MatDialog} from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { UserPageComponent } from '../../user-page/user-page.component';
+import { UserPageComponent } from '../../user-page/user-page/user-page.component';
 @Component({
   selector: 'app-get-list',
   templateUrl: './get-list.component.html',

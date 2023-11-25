@@ -10,7 +10,7 @@ import { AddToListComponent } from './components/add-to-list/add-to-list.compone
 import { ModalComponent } from './components/modal/modal.component';
 import { GetListComponent } from './components/get-list/get-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserPageComponent } from './user-page/user-page.component';
+import { UserPageComponent } from './user-page/user-page/user-page.component';
 import { ActivatedRoute } from '@angular/router';
 import { CreateListComponent } from './components/create_list/create_list.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
