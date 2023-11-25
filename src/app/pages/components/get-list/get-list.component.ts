@@ -18,7 +18,7 @@ export class GetListComponent implements OnInit {
   duracatoTotal!: number;
   mostrarAddList: boolean = false;
   resultadoBotaoAdicionar!: string;
-  criandoItem!: ItemLista;
+  exibirItem!: ItemLista;
   cardAtual!: CardShow;
   constructor(private listaService :ListaService){};
 
@@ -34,7 +34,6 @@ export class GetListComponent implements OnInit {
 
   carregarLista(){
     this.listaService.visualizarLista(this.idLista).subscribe( res => {
-      console.log(res)
       this.lista = res;
       this.nrItensLista = this.lista.itens.length;
       this.avaliacaoMedia = Math.round(this.lista.itens.map(item => item.avaliacao).reduce( (p, c) => p + c, 0) / this.nrItensLista * 100) / 100;
@@ -43,7 +42,7 @@ export class GetListComponent implements OnInit {
 
   editarItem(item: ItemLista){
     this.mostrarAddList = true;
-    this.criandoItem = item;
+    this.exibirItem = item;
     if(item.id)
       this.cardAtual = {
         tipo: 'filme',

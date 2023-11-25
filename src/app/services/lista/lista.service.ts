@@ -22,6 +22,10 @@ export class ListaService {
     return this.httpClient.post(`${this.baseUrl}/${idLista}/remover_item`, itens, { params: {sessionId: sessionId},  responseType: 'text'})
   }
 
+  editarItem(idItem: number, item: ItemLista, sessionId: string): Observable<ItemLista> {
+    return this.httpClient.post<ItemLista>(`${this.baseUrl}/item/${idItem}`, item, { params: {sessionId: sessionId}})
+  }
+
   visualizarLista(idLista: number): Observable<ListaDto>{
     return this.httpClient.get<ListaDto>(`${this.baseUrl}/${idLista}`)
       .pipe(retry(2), catchError(this.handleError))

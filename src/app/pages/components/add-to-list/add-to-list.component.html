@@ -10,28 +10,28 @@
       <div class="col-3">
         <label for="listaSelect" class="form-label">Lista</label>
           <ng-container *ngIf="listasUsuario">
-            <select id="listaSelect" class="form-select" [value]="listaSelecionada">
+            <select id="listaSelect" class="form-select" [(ngModel)]="listaSelecionada">
               <option value="{{lista.id}}" *ngFor="let lista of listasUsuario">{{lista.nome}}</option>
             </select>
           </ng-container>
       </div>
       <div class="col-3">
         <label for="disabledTextInput" class="form-label">Score</label>
-        <input type="number" max="10" min="1" name="score" class="form-control" [value]="criandoItem.avaliacao">
+        <input type="number" max="10" min="1" name="score" class="form-control" [(ngModel)]="criandoItem.avaliacao">
       </div>
       <div class="col-3">
         <label for="disabledTextInput" class="form-label">Status</label>
-        <select id="statusSelect" class="form-select" [value]="criandoItem.status">
-          <option value="watching">Assistindo</option>
-          <option value="completed">Completo</option>
-          <option value="dropped">Dropado</option>
-          <option value="plan-to-watch">Planeja Assistir</option>
+        <select id="statusSelect" class="form-select" [(ngModel)]="criandoItem.status">
+          <option value="assistindo">Assistindo</option>
+          <option value="completo">Completo</option>
+          <option value="dropado">Dropado</option>
+          <option value="planeja assistir">Planeja Assistir</option>
         </select>
       </div>
     </div>
     <div class="" >
       <div class="form-label">Comentários</div>
-      <textarea autocomplete="off" class="item-input-textarea" name="comentario" [value]="criandoItem.comentario"></textarea>
+      <textarea autocomplete="off" class="item-input-textarea" name="comentario" [(ngModel)]="criandoItem.comentario"></textarea>
     </div>
   </div>
 </div>

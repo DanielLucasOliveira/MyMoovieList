@@ -1,3 +1,6 @@
+<ng-container *ngIf="resultadoBotaoAdicionar ? validaResultadoAdicionar() : false">
+    <div class="alert alert-success" role="alert">{{resultadoBotaoAdicionar}}</div>
+</ng-container>
 <div>
     <div class="lista-header" style="background-color: #151F2E; color: #00719E;">
         <div class="row">
@@ -40,9 +43,5 @@
     </div>
 </div>
 <app-modal [(mostrar)]="mostrarAddList" [width]="'100%'" [topPosition]="'-500px'">
-    <add-to-list [cardItem]="cardAtual" [criandoItem]="criandoItem" [(resultadoBotaoAdicionar)]="resultadoBotaoAdicionar" [listaSelecionada]="lista.id" [idUsuario]="idUsuario"></add-to-list>
+    <add-to-list [cardItem]="cardAtual" [criandoItem]="exibirItem" [(resultadoBotaoAdicionar)]="resultadoBotaoAdicionar" [listaSelecionada]="lista.id" [idUsuario]="idUsuario"></add-to-list>
 </app-modal>
-
-<ng-container *ngIf="resultadoBotaoAdicionar ? validaResultadoAdicionar() : false">
-    <div class="alert alert-success" role="alert">{{resultadoBotaoAdicionar}}</div>
-</ng-container>
