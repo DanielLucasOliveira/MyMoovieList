@@ -79,6 +79,7 @@ export class UserPageComponent implements OnInit {
 
   voltarVisaoGeral(){
     this.listaAtual = 0;
+    this.atualizarListas(0);
   }
 
   isCriarLista(){

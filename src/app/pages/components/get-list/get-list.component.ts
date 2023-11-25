@@ -3,11 +3,13 @@ import { CardShow } from 'src/app/dto/card-show';
 import { ItemLista } from 'src/app/dto/item-lista';
 import { ListaDto } from 'src/app/dto/lista-dto';
 import { ListaService } from 'src/app/services/lista/lista.service';
-
+import { MatDialog} from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { UserPageComponent } from '../../user-page/user-page.component';
 @Component({
   selector: 'app-get-list',
   templateUrl: './get-list.component.html',
-  styleUrls: ['./get-list.component.scss']
+  styleUrls: ['./get-list.component.scss'],
 })
 export class GetListComponent implements OnInit {
   @Input() idLista!: number;
@@ -20,7 +22,7 @@ export class GetListComponent implements OnInit {
   resultadoBotaoAdicionar!: string;
   exibirItem!: ItemLista;
   cardAtual!: CardShow;
-  constructor(private listaService :ListaService){};
+  constructor(private listaService :ListaService, public dialog: MatDialog, public router: Router, private userPage: UserPageComponent){};
 
   ngOnInit(): void {
     this.carregarLista();
@@ -67,5 +69,20 @@ export class GetListComponent implements OnInit {
       });
     }
   }
-
+  deleteLista() {
+    const confirmacao = confirm('Tem certeza que deseja excluir a lista? Todos os itens serão excluídos ao confirmar essa ação');
+  
+    if (confirmacao) {
+      this.listaService.deleteLista(this.idLista, 'session').subscribe(
+        rs => {
+          alert(rs);
+          this.userPage.voltarVisaoGeral();
+        },
+        error => {
+          console.error('Erro ao excluir lista', error);
+          alert('Erro ao excluir lista');
+        }
+      );
+    }
+  }  
 }
