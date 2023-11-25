@@ -14,6 +14,7 @@ import { UserPageComponent } from './user-page/user-page/user-page.component';
 import { ActivatedRoute } from '@angular/router';
 import { CreateListComponent } from './components/create_list/create_list.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { DetailMovieComponent } from './detail-movie/detail-movie.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     GetListComponent,
     UserPageComponent,
     CreateListComponent,
-    NavbarComponent
+    NavbarComponent,
+    DetailMovieComponent
   ],
   imports: [
     CommonModule,

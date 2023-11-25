@@ -10,7 +10,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
-    DetailMovieComponent
   ],
   imports: [
     BrowserModule,
