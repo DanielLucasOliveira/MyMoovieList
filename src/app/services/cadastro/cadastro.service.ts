@@ -21,6 +21,10 @@ export class CadastroService {
     return this.httpClient.post<Usuario>(`${this.baseUrl}/cadastrar`, user, { params: {} }).toPromise()
   }
   
+  atualizarCadastroUsuario(idUsuario: number, user: Usuario): Promise<Usuario | undefined> {
+    return this.httpClient.post<Usuario>(`${this.baseUrl}/${idUsuario}/atualizar`, user).toPromise();
+  }
+
   handleError(error: HttpErrorResponse){
     return throwError(() => `UrlPath:  Código do erro: ${error.status}, mensagem: ${error.message}`);
   }

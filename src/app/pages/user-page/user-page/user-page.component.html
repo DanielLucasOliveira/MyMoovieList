@@ -31,7 +31,7 @@
             <button [class.active]="isVisaoGeral()" (click)="voltarVisaoGeral()">Visão geral</button>
             <button [class.active]="isListaAtual(lista.id)" *ngFor="let lista of listas"
                 (click)="ativarListar(lista.id)">{{lista.nome}}</button>
-            <button [class.active]="isCriarLista()" (click)="abrirModal()">+ Criar Lista</button>
+            <button *ngIf="hasPrivilegio" [class.active]="isCriarLista()" (click)="abrirModal()">+ Criar Lista</button>
         </div>
     </section>
 
