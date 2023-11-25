@@ -35,7 +35,9 @@ export class ListaService {
     return this.httpClient.post(`${this.baseUrl}`, {idUsuario: idUsuario, nome: nome}, { params: {sessionId: sessionId}, responseType: 'text'})
   }
   
-  // deleteLista(idLista: number, sessionId: string){}
+  deleteLista(idLista: number, sessionId: string): Observable<string>{
+    return this.httpClient.delete(`${this.baseUrl}/${idLista}`, { params : {sessionId: sessionId}, responseType: 'text'});
+  }
 
   visualizarListasUsuario(idUsuario: number): Observable<ListaDto[]>{
     return this.httpClient.get<ListaDto[]>(`${this.baseUrl}/usuario/${idUsuario}`)

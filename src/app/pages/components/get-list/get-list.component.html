@@ -39,9 +39,9 @@
                     </div>
                 </div>
             </div>
-            
+        </div>
     </div>
-</div>
+    <button class="save-btn" type="submit" (click)="deleteLista()">Excluir Lista</button>
 <app-modal [(mostrar)]="mostrarAddList">
     <add-to-list [cardItem]="cardAtual" [criandoItem]="exibirItem" [(resultadoBotaoAdicionar)]="resultadoBotaoAdicionar" [listaSelecionada]="lista.id" [idUsuario]="idUsuario"></add-to-list>
 </app-modal>
