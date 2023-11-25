@@ -18,9 +18,15 @@
             <div class="populares">
                 <h2>Filmes Populares</h2>
                 <div class="lista-populares">
-                    <ul *ngFor="let filmes of populares">
-                        <li><img src='{{filmes.urlCapa}}'alt=""></li>
-                        <li class="titulo">{{filmes.titulo}}</li>
+                    <ul *ngFor="let movie of populares" style="display: flex;">
+                        <li>
+                            <a class="card" href="/filme/{{movie.id}}/{{movie.nome}}" style="width: 90%; float: left;">
+                                <img src="{{movie.urlImagem}}" alt="">
+                            </a>
+                        </li>
+                        <div>
+                            <li>{{movie.nome}}</li>
+                        </div>
                     </ul>
                 </div>
 

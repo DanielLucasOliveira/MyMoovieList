@@ -11,15 +11,14 @@ import { CardService } from 'src/app/services/card/card.service';
 export class HomeComponent implements OnInit{
 
   populares: CardFilmeSerie[] = [];
-
+  total: any;
   constructor(private movieService : CardService){
 
   }
   ngOnInit(): void {
     this.movieService.pesquisarPopulares().subscribe((movie: CardFilmeSerie[]) => {
-      this.populares = movie
-      console.log(this.populares);
-      
+      this.populares = movie;
+      console.log(movie);
     })
   }
 
