@@ -31,8 +31,8 @@ export class ListaService {
       .pipe(retry(2), catchError(this.handleError))
   }
 
-  createLista(id_usuario: number, nome_lista: string, is_private: boolean, sessionId: string){
-    return this.httpClient.post<ListaDto>(`${this.baseUrl}`, {id_usuario, nome_lista, is_private}, { params: {sessionId: sessionId}})
+  createLista(idUsuario: number, nome: string, is_private: boolean, sessionId: string){
+    return this.httpClient.post<ListaDto>(`${this.baseUrl}`, {idUsuario, nome, is_private}, { params: {sessionId: sessionId}})
   }
   
   // deleteLista(idLista: number, sessionId: string){}
