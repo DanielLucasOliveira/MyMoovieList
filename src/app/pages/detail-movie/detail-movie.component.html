@@ -1,13 +1,6 @@
-<div class="header" style="display: block; color: white; background-repeat: no-repeat; background-size: cover; background-position-x: center; background-position-y: center;" [style.background-image]="'url(' + filme.urlImagemFundo + ')'">
+<div class="header" [style.background-image]="'url(' + filme.urlImagemFundo + ')'">
 
-    <div class="capa-wrapt" style="position: relative; padding: 5%;" >
-        <div class="capa-wrapt-inner" style="position: absolute;">
-            <img src="{{filme.urlCapa}}" width="215px" height="322px" alt="" class="capa">
-            <div class="acoes">
-                botao add to list
-            </div>
-        </div>
-    </div>
+    
     <div class="header-content" style="display: grid; grid-column-gap: 30px;   grid-template-columns: 215px auto;">
         <div class="titulo">
             <h3>{{filme.titulo}}</h3>
@@ -21,11 +14,23 @@
     </div>
 </div>
 
-<div class="content" style="display: grid; gap: 40px; grid-template-columns: 308px auto; margin-top: 30px; position: relative; z-index: -2;">
-    <div class="sidebar" style="background-color: blue; width: 308px; height: 1000px;">
+<div class="content">
+    <div class="sidebar">
+        <div class="capa-wrapt">
+            <div class="capa-wrapt-inner" style="position: absolute;">
+                <img src="{{filme.urlCapa}}" width="215px" height="322px" alt="" class="capa">
+                <div class="acoes">
+                    botao add to list
+                </div>
+            </div>
+        </div>
 
+        <div class="card-dois">
+            <div>
+            </div>
+        </div>
     </div>
-    <div class="overview" style="background-color: gainsboro; width: auto;">
+    <div class="overview">
 
     </div>
 </div>
