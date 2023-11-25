@@ -5,7 +5,7 @@ import { Usuario } from 'src/app/dto/usuario';
 import { CreateListService } from 'src/app/services/create_list.service';
 import { ListaService } from 'src/app/services/lista/lista.service';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
-import { QuickSearchComponent } from '../components/quicksearch/quicksearch.component';
+import { QuickSearchComponent } from '../../components/quicksearch/quicksearch.component';
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.component.html',
