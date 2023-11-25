@@ -68,8 +68,13 @@
                                 <li>{{filme.diretoresEscritores[propriedade].nome}}</li>
                             </div>
                         </ul>
-                        <li>{{filme.elencoPrincipal.cargo}}</li>
-                        <li>{{filme.elencoPrincipal.nome}}</li>
+                        <ul *ngFor="let key of totalCast" style="display: flex;">
+                            <li><img src="{{filme.elencoPrincipal[key].urlImagem}}"></li>
+                            <div style="margin-left: 20px;">
+                                <li>{{filme.elencoPrincipal[key].cargo}}</li>
+                                <li>{{filme.elencoPrincipal[key].nome}}</li>
+                            </div>
+                        </ul>
                     </div>
                 </div>
             </div>
