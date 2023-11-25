@@ -39,7 +39,7 @@ export class CreateListComponent {
     }
     criarLista(){
       if(this.nome_lista != null && this.is_private != null && this.usuario.id){
-        this.listaService.createLista(this.usuario.id, this.nome_lista, this.is_private, 'sessionid')
+        this.listaService.createLista(this.sessionId, this.nome_lista, this.is_private, 'sessionid')
       }
-  }
+    }
 }
