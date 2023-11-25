@@ -21,7 +21,9 @@
         </div>
     </header>
     <app-modal [(mostrar)]="mostrarQuickSearch"> <quickseach></quickseach> </app-modal>
-    <app-modal [(mostrar)]="mostrarCriarLista" topPosition="50%"> <app-create_list [(resultadoCriarLista)]="resultadoCriarLista"></app-create_list></app-modal>
+    <app-modal [(mostrar)]="mostrarCriarLista" topPosition="50%"> 
+        <app-create_list [(mostrar)]="mostrarCriarLista" [(resultadoCriarLista)]="resultadoCriarLista"></app-create_list>
+    </app-modal>
     <ng-container *ngIf="resultadoCriarLista ? validaResultadoAdicionar() : false">
         <div class="alert alert-success" role="alert">{{resultadoCriarLista}}</div>
     </ng-container>

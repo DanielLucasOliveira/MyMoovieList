@@ -17,7 +17,8 @@ export class CreateListComponent {
   @Input() usuarioId!: string;
   @Input() resultadoCriarLista!: string;
   @Output() resultadoCriarListaChange: EventEmitter<string> = new EventEmitter<string>();
-  @Output() mostarModal: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input() mostrar: boolean = false;
+  @Output() mostrarChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private listaService: ListaService, private route: ActivatedRoute, private router: Router) { }
 
@@ -45,6 +46,7 @@ export class CreateListComponent {
   }
 
   cancelar() {
-    this.mostarModal.emit(false);
+    this.mostrar = false;
+    this.mostrarChange.emit(this.mostrar);
   }
 }
