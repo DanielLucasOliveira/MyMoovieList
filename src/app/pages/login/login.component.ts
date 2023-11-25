@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/dto/usuario';
+import { LocalStorageService } from 'src/app/services/localstorage/local-storage.service';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit{
   user = {} as Usuario;
   usuarios: Usuario[] = [];
   
-  constructor(private router : Router, private userService : UsuarioService) {
+  constructor(private router : Router, private userService : UsuarioService, private localStorageService : LocalStorageService) {
 
   }
   
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit{
     this.userService.getUsuario(user.email.toString()).subscribe((userCadastrado) => {
       const usuario = userCadastrado
       if(user.senha === usuario.senha){
+        this.localStorageService.setUsuario(user)
         this.router.navigate([`userPage/${usuario.id}`])
       } else {
         return alert('Falha no login')

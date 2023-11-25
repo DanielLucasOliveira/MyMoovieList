@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { CardEmpresa } from 'src/app/dto/card-empresa';
 import { CardFilmeSerie } from 'src/app/dto/card-filme-serie';
 import { CardMultiBuscaDTO } from 'src/app/dto/card-multi-busca-dto';
@@ -74,7 +74,7 @@ export class QuickSearchComponent{
 
     return {
       tipo: tipo,
-      id: dto.id,
+      id: Number(dto.id),
       nome: nome,
       cargoOuDescricao:  cargoOuDescricao,
       urlImagem: dto.urlImagem,
