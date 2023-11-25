@@ -22,8 +22,8 @@
                     </div>
                     <div class="card-info" style="width: 100%">
                         <h3>{{item.nome}}</h3>
-                        <p>score: {{item.avaliacao}}</p>
-                        <p>status: {{item.status}}</p>
+                        <p>Score: {{item.avaliacao}}</p>
+                        <p>Status: {{item.status}}</p>
                         <div class="buttons">
                             <button style="background-color: transparent; border: none;" (click)="editarItem(item)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FFA500" class="bi bi-brush-fill" viewBox="0 0 16 16">
@@ -41,7 +41,9 @@
             </div>
         </div>
     </div>
-    <button class="save-btn" type="submit" (click)="deleteLista()">Excluir Lista</button>
+    <div class="button-delete">
+        <button class="save-btn" type="submit" (click)="deleteLista()">Excluir Lista</button>
+    </div>
 <app-modal [(mostrar)]="mostrarAddList">
     <add-to-list [cardItem]="cardAtual" [criandoItem]="exibirItem" [(resultadoBotaoAdicionar)]="resultadoBotaoAdicionar" [listaSelecionada]="lista.id" [idUsuario]="idUsuario"></add-to-list>
 </app-modal>
