@@ -25,10 +25,10 @@ export class GetListComponent implements OnInit {
   ngOnInit(): void {
     this.carregarLista();
   }
-  
+
   validaResultadoAdicionar(){
     this.mostrarAddList = false;
-    setTimeout(() => { this.resultadoBotaoAdicionar = '' }, 5000);
+    const myInterval = setTimeout(() => { this.resultadoBotaoAdicionar = ''; this.atualizarListas(myInterval); }, 3000);
     return this.resultadoBotaoAdicionar != 'erro' && this.resultadoBotaoAdicionar != '';
   }
 
@@ -38,6 +38,11 @@ export class GetListComponent implements OnInit {
       this.nrItensLista = this.lista.itens.length;
       this.avaliacaoMedia = Math.round(this.lista.itens.map(item => item.avaliacao).reduce( (p, c) => p + c, 0) / this.nrItensLista * 100) / 100;
     })
+  }
+
+  atualizarListas(myInterval: any){
+    clearInterval(myInterval)
+    this.carregarLista();
   }
 
   editarItem(item: ItemLista){

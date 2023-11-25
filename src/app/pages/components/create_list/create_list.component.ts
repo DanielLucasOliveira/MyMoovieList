@@ -1,45 +1,45 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
-import { Usuario } from 'src/app/dto/usuario';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ListaService } from 'src/app/services/lista/lista.service';
-import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'app-create_list',
   templateUrl: './create_list.component.html',
   styleUrls: ['./create_list.component.scss']
 })
 export class CreateListComponent {
-  nome_lista: string = '';
-  is_private: boolean = false;
-  usuario = {} as Usuario;
-  sessionId: any;
+  nomeLista: string = '';
+  isPrivate: boolean = false;
+  idUsuario!: number;
 
   @Input() listName!:string;
   @Input() isPublic!:string;
   @Input() usuarioId!:string;
-  @Output() onClose = new EventEmitter<boolean>();
+  @Input() resultadoCriarLista!: string;
+  @Output() resultadoCriarListaChange: EventEmitter<string> = new EventEmitter<string>();;
   
-  constructor(
-    public dialogCreateList: MatDialogRef<CreateListComponent>, 
-    private listaService: ListaService,
-    private userService : UsuarioService,
-    private route : ActivatedRoute,
-    ) {}
+  constructor(private listaService: ListaService, private route : ActivatedRoute, private router: Router) {}
 
     ngOnInit(): void {
       this.getID();
-      this.userService.getByID(this.sessionId).subscribe((user) => {
-        this.usuario = user
-      });
     }
   
     getID(){
-      this.sessionId = this.route.snapshot.paramMap.get('idSession');
+      this.idUsuario = Number(this.route.snapshot.paramMap.get('idSession'));
     }
+
     criarLista(){
-      if(this.nome_lista != null && this.is_private != null && this.usuario.id){
-        this.listaService.createLista(this.sessionId, this.nome_lista, this.is_private, 'sessionid')
+      if(this.nomeLista != null && this.isPrivate != null && this.idUsuario){
+        this.listaService.createLista(this.idUsuario, this.nomeLista, this.isPrivate, 'sessionid').subscribe(rst => {
+          this.resultadoCriarLista = rst;
+          this.resultadoCriarListaChange.emit(this.resultadoCriarLista);
+        })
+      }
+    }
+
+    isPrivateChange(target: any){
+      if(target != null){
+        this.isPrivate = target.value
       }
     }
 }

@@ -16,7 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserModule,
     FormsModule, 
     AppRoutingModule,
-    MatDialogModule,   
+    MatDialogModule
   ],
   providers: [CreateListService],
   bootstrap: [AppComponent]

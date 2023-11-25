@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 import { CardEmpresa } from 'src/app/dto/card-empresa';
 import { CardFilmeSerie } from 'src/app/dto/card-filme-serie';
 import { CardMultiBuscaDTO } from 'src/app/dto/card-multi-busca-dto';
@@ -16,46 +18,56 @@ export class QuickSearchComponent{
   listaCardShow = [] as ListCardShow[];
   search: string | undefined;
   timeoutId: any = 0;
-
-  constructor(private cardService: CardService){}
+  searchControl: FormControl;
   
-  getCardsBuscaTodos(event: any){
-    clearTimeout(this.timeoutId);
-    this.timeoutId = setTimeout(()=>{
-      let busca = event.target.value;
-      this.listaCardShow = [];
-      this.cardService.pesquisarTodos(busca).subscribe((cards: CardMultiBuscaDTO) => {
+  constructor(private cardService: CardService){ 
+    this.searchControl = new FormControl();
+    this.searchControl.valueChanges.pipe(debounceTime(1000)).subscribe(res => {
+      this.getCardsBuscaTodos(res);
+    });
+  }
+  
+  reset(){
+    this.searchControl = new FormControl();
+    this.searchControl.valueChanges.pipe(debounceTime(1000)).subscribe(res => {
+      this.getCardsBuscaTodos(res);
+    });
+    this.listaCardShow = [];
+  }
 
-        if(cards.filmes.length > 0){
-          this.listaCardShow.push({
-              tipo: 'filmes',
-              cards: cards.filmes.slice(0, 5).map(filme => { return this.converteCard(filme, 'filme')})
-          })
-        } 
-        
-        if(cards.series.length > 0){
-          this.listaCardShow.push({
-              tipo: 'series',
-              cards: cards.series.slice(0, 5).map(serie => { return this.converteCard(serie, 'serie')})
-        })} 
-        
-        if(cards.pessoas.length > 0){
-          this.listaCardShow.push({
-              tipo: 'pessoas',
-              cards: cards.pessoas.slice(0, 5).map(pessoa => { return this.converteCard(pessoa, 'pessoa')})
-            }
-        )} 
-        
-        if(cards.empresas.length > 0){
-          this.listaCardShow.push({
-              tipo: 'empresas',
-              cards: cards.empresas.slice(0, 5).map(empresa => { return this.converteCard(empresa, 'empresa')})
-            }
-          )
-        }
-      });
-      console.log(this.listaCardShow)
-    }, 500);
+  getCardsBuscaTodos(busca: string){    
+    this.listaCardShow = [];
+    this.cardService.pesquisarTodos(busca).subscribe((cards: CardMultiBuscaDTO) => {
+
+      if(cards.filmes.length > 0){
+        this.listaCardShow.push({
+            tipo: 'filmes',
+            cards: cards.filmes.slice(0, 5).map(filme => { return this.converteCard(filme, 'filme')})
+        })
+      } 
+      
+      if(cards.series.length > 0){
+        this.listaCardShow.push({
+            tipo: 'series',
+            cards: cards.series.slice(0, 5).map(serie => { return this.converteCard(serie, 'serie')})
+      })} 
+      
+      if(cards.pessoas.length > 0){
+        this.listaCardShow.push({
+            tipo: 'pessoas',
+            cards: cards.pessoas.slice(0, 5).map(pessoa => { return this.converteCard(pessoa, 'pessoa')})
+          }
+      )} 
+      
+      if(cards.empresas.length > 0){
+        this.listaCardShow.push({
+            tipo: 'empresas',
+            cards: cards.empresas.slice(0, 5).map(empresa => { return this.converteCard(empresa, 'empresa')})
+          }
+        )
+      }
+    });
+    
   }
   
   converteCard(dto: CardPessoa | CardFilmeSerie | CardEmpresa, tipo: string): CardShow {

@@ -9,11 +9,13 @@
     <div class="row">
       <div class="col-3">
         <label for="listaSelect" class="form-label">Lista</label>
-          <ng-container *ngIf="listasUsuario">
-            <select id="listaSelect" class="form-select" [(ngModel)]="listaSelecionada">
-              <option value="{{lista.id}}" *ngFor="let lista of listasUsuario">{{lista.nome}}</option>
-            </select>
-          </ng-container>
+          <select id="listaSelect" class="form-select" [(ngModel)]="listaSelecionada" (change)="listaSelecionadaChange($event.target)">
+            <option *ngFor="let lista of listasUsuario" [ngValue]="lista.id" >{{lista.nome}}</option>
+
+            <ng-container *ngIf="listaVazia()">
+              <option [value]="undefined" selected></option>
+            </ng-container>
+          </select>
       </div>
       <div class="col-3">
         <label for="disabledTextInput" class="form-label">Score</label>
@@ -21,11 +23,11 @@
       </div>
       <div class="col-3">
         <label for="disabledTextInput" class="form-label">Status</label>
-        <select id="statusSelect" class="form-select" [(ngModel)]="criandoItem.status">
-          <option value="assistindo">Assistindo</option>
-          <option value="completo">Completo</option>
-          <option value="dropado">Dropado</option>
-          <option value="planeja assistir">Planeja Assistir</option>
+        <select id="statusSelect" class="form-select" [(ngModel)]="criandoItem.status" (change)="statusChange($event.target)">
+          <option [value]="'assistindo'" selected>Assistindo</option>
+          <option [value]="'completo'">Completo</option>
+          <option [value]="'dropado'">Dropado</option>
+          <option [value]="'planeja assistir'">Planeja Assistir</option>
         </select>
       </div>
     </div>

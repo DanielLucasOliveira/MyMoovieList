@@ -9,9 +9,10 @@ import { QuickSearchComponent } from './components/quicksearch/quicksearch.compo
 import { AddToListComponent } from './components/add-to-list/add-to-list.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { GetListComponent } from './components/get-list/get-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserPageComponent } from './user-page/user-page.component';
 import { ActivatedRoute } from '@angular/router';
+import { CreateListComponent } from './components/create_list/create_list.component';
 
 
 @NgModule({
@@ -24,12 +25,14 @@ import { ActivatedRoute } from '@angular/router';
     AddToListComponent,
     ModalComponent,
     GetListComponent,
-    UserPageComponent
+    UserPageComponent,
+    CreateListComponent
   ],
   imports: [
     CommonModule,
     RoutingModule,
     FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PagesModule { }

@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CardShow } from 'src/app/dto/card-show';
 import { ItemLista } from 'src/app/dto/item-lista';
 import { ListaDto } from 'src/app/dto/lista-dto';
 import { ListaService } from 'src/app/services/lista/lista.service';
-import { LocalStorageService } from 'src/app/services/localstorage/local-storage.service';
 
 @Component({
   selector: 'add-to-list',
@@ -21,11 +21,15 @@ export class AddToListComponent implements OnInit {
   @Input() criandoItem!: ItemLista;
   @Input() listaSelecionada!: number;
 
+  getID(){
+    if(this.idUsuario == null)
+      this.idUsuario = Number(this.route.snapshot.paramMap.get('idSession'));
+  }
 
-
-  constructor(private listaService: ListaService, private localStorageService: LocalStorageService){}
+  constructor(private listaService: ListaService, private route : ActivatedRoute, private router: Router){}
 
   ngOnInit(): void {
+    this.getID()
     if(this.listaSelecionada != null){
       this.listaService.visualizarLista(this.listaSelecionada).subscribe(rst => {
         this.listasUsuario = Array.of(rst);
@@ -33,9 +37,17 @@ export class AddToListComponent implements OnInit {
     } else if(this.idUsuario != null){
       this.listaService.visualizarListasUsuario(this.idUsuario).subscribe(rst => {
         this.listasUsuario = rst;
+        this.listaSelecionada = this.listasUsuario[0].id;
       });
     }
-    this.criandoItem = {id: null, nome: '', comentario: '', avaliacao: 1, status: 'watching', idTmdb: '', urlImagem: ''};
+    this.criandoItem = {id: null, nome: '', comentario: '', avaliacao: 1, status: 'assistindo', idTmdb: '', urlImagem: ''};
+  }
+
+  reset(){
+    this.listaService.visualizarListasUsuario(this.idUsuario).subscribe(rst => {
+      this.listasUsuario = rst;
+      this.listaSelecionada = this.listasUsuario[0].id;
+    });
   }
 
   adicionarItem(){
@@ -57,18 +69,34 @@ export class AddToListComponent implements OnInit {
           this.resultadoBotaoAdicionar = 'erro';
           this.resultadoBotaoAdicionarChange.emit(this.resultadoBotaoAdicionar);
         }
-      }else {
-        try {
-          this.listaService.adicionarItem(this.listaSelecionada, Array.of(this.criandoItem), 'sessionid').subscribe((resultado: string) => {
-            this.resultadoBotaoAdicionar = `${this.cardItem?.nome} adicionado. lista atualizada`;
-            this.resultadoBotaoAdicionarChange.emit(this.resultadoBotaoAdicionar);
-          })
-        } catch (error) {
-          this.resultadoBotaoAdicionar = 'erro';
-          this.resultadoBotaoAdicionarChange.emit(this.resultadoBotaoAdicionar);
-        }
       }
-    } 
+    }  else {
+      try {
+        this.listaService.adicionarItem(this.listaSelecionada, Array.of(this.criandoItem), 'sessionid').subscribe((resultado: string) => {
+          this.resultadoBotaoAdicionar = `${this.cardItem?.nome} adicionado. lista atualizada`;
+          this.resultadoBotaoAdicionarChange.emit(this.resultadoBotaoAdicionar);
+        })
+      } catch (error) {
+        this.resultadoBotaoAdicionar = 'erro';
+        this.resultadoBotaoAdicionarChange.emit(this.resultadoBotaoAdicionar);
+      }
+    }
+  }
+
+  listaSelecionadaChange(target: any){
+    if(target != null){
+      this.listaSelecionada = target.value
+    }
+  }
+
+  statusChange(target: any){
+    if(target != null){
+      this.criandoItem.status = target.value
+    }
+  }
+
+  listaVazia(){
+    return this.listasUsuario == null || this.listasUsuario.length === 0;
   }
 
   existeNaLista(itemId: number): number{

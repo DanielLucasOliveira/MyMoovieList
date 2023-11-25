@@ -31,8 +31,8 @@ export class ListaService {
       .pipe(retry(2), catchError(this.handleError))
   }
 
-  createLista(idUsuario: number, nome: string, is_private: boolean, sessionId: string){
-    return this.httpClient.post<ListaDto>(`${this.baseUrl}`, {idUsuario, nome, is_private}, { params: {sessionId: sessionId}})
+  createLista(idUsuario: number, nome: string, isPrivate: boolean, sessionId: string): Observable<string>{
+    return this.httpClient.post(`${this.baseUrl}`, {idUsuario: idUsuario, nome: nome}, { params: {sessionId: sessionId}, responseType: 'text'})
   }
   
   // deleteLista(idLista: number, sessionId: string){}
