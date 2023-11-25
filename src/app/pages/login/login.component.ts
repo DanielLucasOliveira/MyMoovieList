@@ -14,12 +14,13 @@ export class LoginComponent implements OnInit{
   user = {} as Usuario;
   usuarios: Usuario[] = [];
   
-  constructor(private router : Router, private userService : UsuarioService, private localStorageService : LocalStorageService) {
-
-  }
+  constructor(private router : Router, private userService : UsuarioService, private localStorageService : LocalStorageService) { }
   
   ngOnInit(): void {
     this.getUser()
+    if(this.localStorageService.getUsuario()){
+      this.router.navigate([`userPage/${this.localStorageService.getUsuario().id}`])
+    }
   }
 
   getUser(){
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit{
     this.userService.getUsuario(user.email.toString()).subscribe((userCadastrado) => {
       const usuario = userCadastrado
       if(user.senha === usuario.senha){
+        this.localStorageService.setUsuario(usuario)
         this.router.navigate([`userPage/${usuario.id}`])
       } else {
         return alert('Falha no login')

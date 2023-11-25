@@ -28,6 +28,10 @@ export class LocalStorageService {
     return false;
   }
 
+  deslogar(){
+    this.storage.setItem('usuario', '');
+  }
+
   getUsuario(): any {
     if (this.storage) {
       return JSON.parse(this.storage.getItem('usuario') ?? '');

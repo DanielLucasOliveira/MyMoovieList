@@ -36,7 +36,7 @@ export class AddToListComponent implements OnInit {
       this.listaService.visualizarLista(this.listaSelecionada).subscribe(rst => {
         this.listasUsuario = Array.of(rst);
       })
-    } else if (this.idUsuario != null) {
+    } else if (this.idUsuario != null && this.idUsuario != 0) {//TODO: VALIDAR LINHA
       this.listaService.visualizarListasUsuario(this.idUsuario).subscribe(rst => {
         this.listasUsuario = rst;
         this.listaSelecionada = this.listasUsuario[0].id;

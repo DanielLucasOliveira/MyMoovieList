@@ -12,6 +12,8 @@ import { UserPageComponent } from '../../user-page/user-page/user-page.component
   styleUrls: ['./get-list.component.scss'],
 })
 export class GetListComponent implements OnInit {
+  
+  @Input() hasPrivilegio: boolean = false
   @Input() idLista!: number;
   @Input() idUsuario!: number;
   lista!: ListaDto;
