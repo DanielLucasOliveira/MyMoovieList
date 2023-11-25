@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListaDto } from 'src/app/dto/lista-dto';
 import { Usuario } from 'src/app/dto/usuario';
+import { CreateListService } from 'src/app/services/create_list.service';
 import { ListaService } from 'src/app/services/lista/lista.service';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
-import { CreateListService } from 'src/app/services/create_list.service';
+
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.component.html',
@@ -22,10 +23,6 @@ export class UserPageComponent implements OnInit {
     private listaService: ListaService,) {
   }
 
-  openModalCreateList(id:number):void{
-    this.createListService.openModal();
-  }
-  
   ngOnInit(): void {
     this.getID();
     this.userService.getByID(this.sessionId).subscribe((user) => {
@@ -39,11 +36,31 @@ export class UserPageComponent implements OnInit {
   getID(){
     this.sessionId = this.route.snapshot.paramMap.get('idSession');
   }
-  userVG(): any{
-    return this.router.navigated
+
+  isVisaoGeral(){
+    return this.listaAtual === 0;
+  }
+
+  isListaAtual(id: number){
+    return this.listaAtual === id;
+  }
+
+  ativarListar(listaId: number){
+    this.listaAtual = 0;
+    setTimeout(() => {
+      this.listaAtual = listaId;
+    }, 300);
+  }
+
+  voltarVisaoGeral(){
+    this.listaAtual = 0;
   }
 
   isCriarLista(){
-    return this.router.isActive('/create_list', true);
+    return this.listaAtual === -1;
+  }
+
+  abrirModal(id : number){
+
   }
 }
