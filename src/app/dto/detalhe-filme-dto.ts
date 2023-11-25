@@ -26,4 +26,6 @@ export interface DetalheFilmeDTO {
     duracao: string;
 
     trailers: string[];
+
+    descricao: string; 
 }

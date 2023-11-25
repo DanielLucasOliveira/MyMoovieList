@@ -4,9 +4,13 @@
     background-size: cover; 
     background-position-x: center; 
     background-position-y: center;
-    height: 250px;
+    height: 400px;
 }
-
+.main{
+    background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(73,5,68,1) 86%);
+    width: auto;
+    height: 1600px;
+}
 .content{
     display: grid;
     gap: 40px; 
@@ -20,11 +24,11 @@
     box-shadow: 0 0 29px rgba(49,54,68,.25);
     margin-top: 15px;
     width: 100%;
-    
+    height: auto;
 }
 
 .sidebar{
-    background: rgb(36, 36, 36);
+    // background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(73,5,68,1) 86%);
     width: 308px;
     height: 1000px;
     .capa-wrapt, .card-dois{
@@ -40,14 +44,15 @@
 
 .card-info{
     margin-top: 600px;
-    background: linear-gradient(0deg, rgb(36, 36, 36) 0%, rgba(114,114,114,1) 5%, rgba(194,194,194,1) 92%);
+    // background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(73,5,68,1) 86%);
     width: 215px;
     padding: 10px;
+    color: #fff;
 }
 
 .overview {
     width: auto;
-    background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(73,5,68,1) 86%);
+    // background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(73,5,68,1) 86%);
     h2{
         margin: 20px 0 0 30px;
         color: rgb(166, 167, 168);
@@ -130,4 +135,28 @@ nav a {
     :hover{
         color: #fff;
     }
+}
+.titulo{
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+}
+
+.description{
+    text-align: justify;
+}
+button {
+    background-color: #6200ff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.save-btn{
+    text-align: center;
 }

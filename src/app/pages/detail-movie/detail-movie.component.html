@@ -7,65 +7,70 @@
 </head>
 <body>
     <app-navbar></app-navbar>
-    <div class="header" [style.background-image]="'url(' + filme.urlImagemFundo + ')'">
-        <div class="header-content" style="display: grid; grid-column-gap: 30px;   grid-template-columns: 215px auto;">
-            <div class="titulo">
-                <h3>{{filme.titulo}}</h3>
-            </div>
-            <div class="generos">
-                <span *ngFor="let genero of filme.generos">{{genero}} </span>
-            </div>
-            <div class="descricao">
-    
-            </div>
-        </div>
-    </div>
-    
-    <div class="content">
-        <div class="sidebar">
-            <div class="capa-wrapt">
-                <div class="capa-wrapt-inner" style="position: absolute;">
-                    <img src="{{filme.urlCapa}}" width="215px" height="322px" alt="" class="capa">
-                    <div class="acoes">
-                        botao add to list
-                    </div>
-                </div>
-            </div>
-    
-            <div class="capa-wrapt">
-                <div class="capa-wrapt-inner" style="position: absolute;">
-                    <div class="card-info">
-                        <label>
-                            <h2>Titulo Original</h2>
-                            <h3>{{filme.tituloOriginal}}</h3>
-                        </label>
-                        <Label>
-                            <h2>Situação</h2>
-                            <h3>{{filme.situacao}}</h3>
-                        </Label>
-                        <label>
-                            <h2>Idioma Original</h2>
-                            <h3>{{filme.idiomaOriginal}}</h3>
-                        </label>
-                        <label>
-                            <h2 >Diretores</h2>
-                            <h3  *ngFor="let propriedade of total" >{{filme.diretoresEscritores[propriedade].nome}}</h3>
-                        </label>
-                    </div>
+    <div class="main">
+        <div class="header" [style.background-image]="'url(' + filme.urlImagemFundo + ')'">
+            <div class="header-content" style="display: grid; grid-column-gap: 30px;   grid-template-columns: 215px auto;">
+                <div class="titulo">
+                    <h1>{{filme.titulo}}</h1>
                 </div>
             </div>
         </div>
-        <div class="overview">
-            <h2>Staff</h2>
-            <div class="staff" >
-                <div class="ajuste">
-                    <ul *ngFor="let propriedade of total" style="display: flex;">
-                        <li><img src="{{filme.diretoresEscritores[propriedade].urlImagem}}"></li>
-                        <div style="margin-left: 20px;">
-                            <li>{{filme.diretoresEscritores[propriedade].cargo}}</li>
-                            <li>{{filme.diretoresEscritores[propriedade].nome}}</li>
+        
+        <div class="content">
+            <div class="sidebar">
+                <div class="capa-wrapt">
+                    <div class="capa-wrapt-inner" style="position: absolute;">
+                        <img src="{{filme.urlCapa}}" width="215px" height="322px" alt="" class="capa">
+                    </div>
+                </div>
+                <div class="capa-wrapt">
+                    <div class="capa-wrapt-inner" style="position: absolute;">
+                        <div class="card-info">
+                            <div class="acoes">
+                                <button class="save-btn">Adicionar</button>
+                            </div>
+                            <label>
+                                <h2>Titulo Original</h2>
+                                <h3>{{filme.tituloOriginal}}</h3>
+                            </label>
+                            <label>
+                                <h2>Gênero(s)</h2>
+                                <h3><span *ngFor="let genero of filme.generos">{{genero}} <br></span></h3>
+                            </label>
+                            <label class="description">
+                                <h2>Resumo</h2>
+                                <h3>{{filme.descricao}}</h3>
+                            </label>
+                            <Label>
+                                <h2>Situação</h2>
+                                <h3>{{filme.situacao}}</h3>
+                            </Label>
+                            <label>
+                                <h2>Idioma Original</h2>
+                                <h3>{{filme.idiomaOriginal}}</h3>
+                            </label>
+                            <label>
+                                <h2>Diretores</h2>
+                                <h3 *ngFor="let propriedade of total" >{{filme.diretoresEscritores[propriedade].nome}}</h3>
+                            </label>
                         </div>
-                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="overview">
+                <h2>Staff</h2>
+                <div class="staff" >
+                    <div class="ajuste">
+                        <ul *ngFor="let propriedade of total" style="display: flex;">
+                            <li><img src="{{filme.diretoresEscritores[propriedade].urlImagem}}"></li>
+                            <div style="margin-left: 20px;">
+                                <li>{{filme.diretoresEscritores[propriedade].cargo}}</li>
+                                <li>{{filme.diretoresEscritores[propriedade].nome}}</li>
+                            </div>
+                        </ul>
+                        <li>{{filme.elencoPrincipal.cargo}}</li>
+                        <li>{{filme.elencoPrincipal.nome}}</li>
+                    </div>
                 </div>
             </div>
         </div>
