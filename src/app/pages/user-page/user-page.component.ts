@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/dto/usuario';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
-
+import { CreateListService } from 'src/app/services/create_list.service';
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.component.html',
@@ -13,10 +13,14 @@ export class UserPageComponent implements OnInit {
   sessionId: any;
   usuario = {} as Usuario
 
-  constructor(private userService : UsuarioService, private route : ActivatedRoute, private router: Router) {
-
+  constructor(private userService : UsuarioService, private route : ActivatedRoute, private router: Router,
+    private createListService: CreateListService) {
   }
 
+  openModalCreateList(id:number):void{
+    this.createListService.openModal();
+  }
+  
   ngOnInit(): void {
     this.getID();
     this.userService.getByID(this.sessionId).subscribe((user) => {
@@ -29,12 +33,10 @@ export class UserPageComponent implements OnInit {
     this.sessionId = this.route.snapshot.paramMap.get('idSession');
   }
   userVG(): any{
-    console.log(this.router.navigated);
-    
     return this.router.navigated
   }
 
   isCriarLista(){
-    return this.router.isActive('/criarLista', true);
+    return this.router.isActive('/create_list', true);
   }
 }

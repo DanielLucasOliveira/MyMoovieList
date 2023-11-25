@@ -15,7 +15,7 @@
     <section class="menu">
         <div>
             <button [class.active]="userVG()">Visão geral</button>
-            <button [class.active]="isCriarLista()">Criar Lista</button>
+            <button [class.active]="isCriarLista()" (click)="openModalCreateList(usuario.id)">Criar Lista</button>
         </div>
     </section>
     <section class="main-content">
