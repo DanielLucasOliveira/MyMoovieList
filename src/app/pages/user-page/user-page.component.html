@@ -17,7 +17,7 @@
         <div>
             <button [class.active]="isVisaoGeral()" (click)="voltarVisaoGeral()">Visão geral</button>
             <button [class.active]="isListaAtual(lista.id)" *ngFor="let lista of listas" (click)="ativarListar(lista.id)">{{lista.nome}}</button>
-            <button [class.active]="isCriarLista()" style="color: white;">+ Criar Lista</button>
+            <button [class.active]="isCriarLista()" style="color: white;" (click)="abrirModal()">+ Criar Lista</button>
         </div>
     </section>
 

@@ -5,7 +5,6 @@ import { Usuario } from 'src/app/dto/usuario';
 import { CreateListService } from 'src/app/services/create_list.service';
 import { ListaService } from 'src/app/services/lista/lista.service';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
-
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.component.html',
@@ -60,7 +59,7 @@ export class UserPageComponent implements OnInit {
     return this.listaAtual === -1;
   }
 
-  abrirModal(id : number){
-
+  abrirModal(){
+    this.createListService.openModal();
   }
 }
