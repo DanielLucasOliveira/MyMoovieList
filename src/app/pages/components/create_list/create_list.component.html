@@ -1,15 +1,18 @@
-<div id="adicionarLista">
-  <h2>Adicionar Nova Lista</h2>
-  <form>
-    <label for="nome_lista" class="form-label">Nome:</label>
-    <input type="text" class="form-control" name="nome_lista" id="nome_lista" [(ngModel)]="nomeLista">
-    <label for="is_private" class="form-label">Pública:</label>
-    <select class="form-select" name="is_private" id="is_private" [(ngModel)]="isPrivate" (change)="isPrivateChange($event.target)">
-      <option value="true">Sim</option>
-      <option value="false">Não</option>
-    </select>
-    <br>
-    <button class="save-btn" type="submit" (click)="criarLista()">Criar</button>
-    <br>
-  </form>
+<div class="modal-body">
+  <div id="adicionarLista">
+    <h2>Adicionar Nova Lista</h2>
+    <form>
+      <label for="nome_lista" class="form-label">Nome:</label>
+      <input type="text" class="form-control" name="nome_lista" id="nome_lista" [(ngModel)]="nomeLista">
+      <label for="is_private" class="form-label">Pública:</label>
+      <select class="form-select" name="is_private" id="is_private" [(ngModel)]="isPrivate" (change)="isPrivateChange($event.target)">
+        <option value="true">Sim</option>
+        <option value="false">Não</option>
+      </select>
+      <br>
+      <button class="save-btn" type="submit" (click)="criarLista()">Criar</button>
+      <button class="save-btn" type="submit" (click)="cancelar()">Cancelar</button>
+      <br>
+    </form>
+  </div>
 </div>
