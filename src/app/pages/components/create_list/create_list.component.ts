@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CreateListComponent {
   nome_lista: string = '';
   is_private: boolean = false;
-  usuario : any;
+  usuario = {} as Usuario;
   sessionId: any;
 
   @Input() listName!:string;
@@ -36,8 +36,6 @@ export class CreateListComponent {
   
     getID(){
       this.sessionId = this.route.snapshot.paramMap.get('idSession');
-      console.log("Session: "+this.sessionId);
-      console.log("Route: "+this.route);
     }
     criarLista(){
       if(this.nome_lista != null && this.is_private != null && this.usuario.id){

@@ -59,8 +59,7 @@ export class UserPageComponent implements OnInit {
   isCriarLista(){
     return this.listaAtual === -1;
   }
-
-  abrirModal(){
+  abrirModal():void{
     this.createListService.openModal();
   }
 }
