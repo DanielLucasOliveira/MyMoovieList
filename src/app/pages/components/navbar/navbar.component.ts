@@ -1,4 +1,4 @@
-import { Component, ViewChildren, QueryList } from '@angular/core';
+import { Component, ViewChildren, QueryList, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/localstorage/local-storage.service';
 import { QuickSearchComponent } from '../quicksearch/quicksearch.component';
 
@@ -7,20 +7,28 @@ import { QuickSearchComponent } from '../quicksearch/quicksearch.component';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
 
   mostrarQuickSearch: boolean = false;
   @ViewChildren(QuickSearchComponent) quickSearch!: QueryList<QuickSearchComponent>
 
   constructor(private localStorageService: LocalStorageService){  }
   
+  ngOnInit(): void {
+    this.isLogado();
+  }
+
   deslogarUsuario(){
     this.localStorageService.deslogar();
     window.location.reload();
   }
 
   isLogado(){
-    return this.localStorageService.getUsuario() && this.localStorageService.getUsuario() != '';
+    try{
+      return this.localStorageService.getUsuario() && this.localStorageService.getUsuario() != '';
+    } catch (err) {
+      return false;
+    }
   }
 
   abreBarraPesquisa(){
