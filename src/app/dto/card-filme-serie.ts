@@ -3,4 +3,5 @@ export interface CardFilmeSerie {
     titulo: string;
     descricao: string;
     urlImagem: string;
+    urlCapa: string;
 }

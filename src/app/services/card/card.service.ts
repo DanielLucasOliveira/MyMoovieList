@@ -33,6 +33,10 @@ export class CardService {
       .pipe(retry(2),catchError(this.handleError))
   }
 
+  pesquisarPopulares(): Observable<CardFilmeSerie[]>{
+    return this.httpClient.get<CardFilmeSerie[]>(`${this.baseUrl}/populares`)
+  }
+
   handleError(error: HttpErrorResponse){
     return throwError(() => `UrlPath:  Código do erro: ${error.status}, mensagem: ${error.message}`);
   }
