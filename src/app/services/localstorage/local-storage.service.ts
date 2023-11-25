@@ -30,7 +30,7 @@ export class LocalStorageService {
 
   getUsuario(): any {
     if (this.storage) {
-      return this.storage.getItem('usuario');
+      return JSON.parse(this.storage.getItem('usuario') ?? '');
     }
     return null;
   }

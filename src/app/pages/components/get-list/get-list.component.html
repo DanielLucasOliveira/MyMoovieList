@@ -40,7 +40,7 @@
     </div>
 </div>
 <app-modal [(mostrar)]="mostrarAddList" [width]="'100%'" [topPosition]="'-500px'">
-    <add-to-list [cardItem]="cardAtual" [criandoItem]="criandoItem" [(resultadoBotaoAdicionar)]="resultadoBotaoAdicionar" [listaSelecionada]="lista.id"></add-to-list>
+    <add-to-list [cardItem]="cardAtual" [criandoItem]="criandoItem" [(resultadoBotaoAdicionar)]="resultadoBotaoAdicionar" [listaSelecionada]="lista.id" [idUsuario]="idUsuario"></add-to-list>
 </app-modal>
 
 <ng-container *ngIf="resultadoBotaoAdicionar ? validaResultadoAdicionar() : false">
