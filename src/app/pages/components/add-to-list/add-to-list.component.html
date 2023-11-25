@@ -3,15 +3,17 @@
   <div class="item-header">
     <img src="{{cardItem?.urlImagem}}" class="img-item" alt="">
     <div class="title" >{{cardItem?.nome}}</div>
-    <button class="save-btn" (click)="adionarItem()">Save</button>
+    <button class="save-btn" (click)="adicionarItem()">Save</button>
   </div>
   <div class="item-content">
     <div class="row">
       <div class="col-3">
         <label for="listaSelect" class="form-label">Lista</label>
-          <select id="listaSelect" class="form-select" [value]="listaSelecionada">
-            <option value="0">listas nao encontradas</option>
-          </select>
+          <ng-container *ngIf="listasUsuario">
+            <select id="listaSelect" class="form-select" [value]="listaSelecionada">
+              <option value="{{lista.id}}" *ngFor="let lista of listasUsuario">{{lista.nome}}</option>
+            </select>
+          </ng-container>
       </div>
       <div class="col-3">
         <label for="disabledTextInput" class="form-label">Score</label>

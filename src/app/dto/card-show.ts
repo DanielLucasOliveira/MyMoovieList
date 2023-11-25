@@ -1,6 +1,6 @@
 export interface CardShow {
     tipo: string;
-    id: BigInteger;
+    id: number;
     nome: string;
     cargoOuDescricao: string;
     slugifiedNome: string;

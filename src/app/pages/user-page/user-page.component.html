@@ -7,6 +7,7 @@
 </head>
 <body>
     <header>
+        
         <div class="navigation">
             <span class="icon"><i class="bi bi-person"></i></span>
             <label class="usuario">{{usuario.nome}}</label>
@@ -14,48 +15,16 @@
     </header>
     <section class="menu">
         <div>
-            <button [class.active]="userVG()">Visão geral</button>
-            <button [class.active]="isCriarLista()" (click)="openModalCreateList(usuario.id)">Criar Lista</button>
+            <button [class.active]="isVisaoGeral()" (click)="voltarVisaoGeral()">Visão geral</button>
+            <button [class.active]="isListaAtual(lista.id)" *ngFor="let lista of listas" (click)="ativarListar(lista.id)">{{lista.nome}}</button>
+            <button [class.active]="isCriarLista()" style="color: white;">+ Criar Lista</button>
         </div>
     </section>
+
     <section class="main-content">
-        <h2>Explore nosso conteúdo</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam auctor libero et urna lacinia, nec lacinia est malesuada.
-        </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam auctor libero et urna lacinia, nec lacinia est malesuada.
-        </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam auctor libero et urna lacinia, nec lacinia est malesuada.
-        </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam auctor libero et urna lacinia, nec lacinia est malesuada.
-        </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam auctor libero et urna lacinia, nec lacinia est malesuada.
-        </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam auctor libero et urna lacinia, nec lacinia est malesuada.
-        </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam auctor libero et urna lacinia, nec lacinia est malesuada.
-        </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam auctor libero et urna lacinia, nec lacinia est malesuada.
-        </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam auctor libero et urna lacinia, nec lacinia est malesuada.
-        </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam auctor libero et urna lacinia, nec lacinia est malesuada.
-        </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam auctor libero et urna lacinia, nec lacinia est malesuada.
-        </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam auctor libero et urna lacinia, nec lacinia est malesuada.
-        </p>
+        <ng-container *ngIf="listaAtual > 0" >
+            <app-get-list [idLista]="listaAtual"></app-get-list>
+        </ng-container>
     </section>
 
     <footer>

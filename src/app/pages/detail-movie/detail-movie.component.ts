@@ -10,6 +10,7 @@ import { DetalhesService } from 'src/app/services/detalhes/detalhes.service';
 })
 export class DetailMovieComponent implements OnInit {
   filme!: DetalheFilmeDTO;
+  total: any;
 
   constructor(private router: Router, private route : ActivatedRoute, private detalheService: DetalhesService){};
 
@@ -18,7 +19,9 @@ export class DetailMovieComponent implements OnInit {
     if(idMovie)
       this.detalheService.detalharFilme(Number.parseInt(idMovie)).subscribe((result: DetalheFilmeDTO) => {
         this.filme = result;
-        console.log(this.filme)
-    });
-  }
+        this.total = Object.keys(this.filme.diretoresEscritores)
+        console.log(this.total);
+        
+      });
+    }
 }
