@@ -63,7 +63,6 @@ export class AddToListComponent implements OnInit {
       this.criandoItem.urlImagem = this.cardItem.urlImagem;
     }
     if (this.criandoItem.id != null) {
-      alert('chega aqui para editar')
       let idLista = this.existeNaLista(this.criandoItem.id);
       if (idLista != -1) {
         try {

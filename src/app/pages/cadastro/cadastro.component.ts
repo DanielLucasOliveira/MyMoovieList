@@ -32,6 +32,7 @@ export class CadastroComponent implements OnInit {
         this.router.navigate(['/login'])
       }, 3000);
     } else {
+      alert("senhas diferem uma da outra!")
       this.senhaInvalida = document.getElementById('snackbar');
 
       this.senhaInvalida.className = "Show";
