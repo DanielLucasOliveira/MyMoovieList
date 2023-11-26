@@ -1,9 +1,8 @@
-<div id="adicionarItem">
+<div id="adicionarItem" [ngStyle]="{'margin-top': changeTop, 'position': changePosition}">
   <div class="item-header">
     <img src="{{cardItem?.urlImagem}}" class="img-item" alt="" style="border: 2px solid;">
     <div class="title" >{{cardItem?.nome}}</div>
-    <button class="save-btn" (click)="adicionarItem()">Save</button>
-    <button class="leave-btn" type="submit" (click)="cancelar()">Cancelar</button>
+    
   </div>
   <div class="item-content">
     <div class="row">
@@ -35,6 +34,8 @@
       <div class="form-label">Comentários</div>
       <textarea autocomplete="off" class="item-input-textarea" name="comentario" [(ngModel)]="criandoItem.comentario"></textarea>
     </div>
+    <button class="save-btn" (click)="adicionarItem()">Save</button>
+    <button class="leave-btn" type="submit" (click)="cancelar()">Cancelar</button>
   </div>
   
 </div>

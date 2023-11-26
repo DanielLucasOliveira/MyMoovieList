@@ -6,6 +6,8 @@ import { ListaService } from 'src/app/services/lista/lista.service';
 import { MatDialog} from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UserPageComponent } from '../../user-page/user-page/user-page.component';
+import * as $ from 'jquery';
+import { css } from 'jquery';
 @Component({
   selector: 'app-get-list',
   templateUrl: './get-list.component.html',
@@ -16,6 +18,7 @@ export class GetListComponent implements OnInit {
   @Input() hasPrivilegio: boolean = false
   @Input() idLista!: number;
   @Input() idUsuario!: number;
+
   lista!: ListaDto;
   nrItensLista!: number;
   avaliacaoMedia!: number;
@@ -24,10 +27,12 @@ export class GetListComponent implements OnInit {
   resultadoBotaoAdicionar!: string;
   exibirItem!: ItemLista;
   cardAtual!: CardShow;
+  ajuste: boolean | undefined;
   constructor(private listaService :ListaService, public dialog: MatDialog, public router: Router, private userPage: UserPageComponent){};
 
   ngOnInit(): void {
     this.carregarLista();
+    
   }
 
   validaResultadoAdicionar(){
@@ -52,6 +57,7 @@ export class GetListComponent implements OnInit {
   editarItem(item: ItemLista){
     this.mostrarAddList = true;
     this.exibirItem = item;
+    
     if(item.id)
       this.cardAtual = {
         tipo: 'filme',
@@ -61,6 +67,7 @@ export class GetListComponent implements OnInit {
         slugifiedNome: 'string',
         urlImagem: item.urlImagem
       }
+      this.ajuste = true;
   }
 
   deleteItem(idLIsta: number, item: ItemLista){

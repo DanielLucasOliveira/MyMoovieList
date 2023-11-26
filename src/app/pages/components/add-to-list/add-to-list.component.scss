@@ -1,12 +1,12 @@
 #adicionarItem{
-    position: absolute;
     padding: 24px;
-    width: 900px;
+    width: 1000px;
     height: 450px;
     color: white;
     background: #151F2E;
-    margin-left: 25%;
     border: 2px solid;
+    margin: auto;
+    z-index: 0;
 }
 
 .cobertura {
@@ -29,10 +29,10 @@
 }
 
 .item-content{
-    background-color: #151F2E;
-    padding: 100px 0px 50px 150px;
     width: 100%;
     height: 50%;
+    margin-left: 20px;
+    margin-top: 80px;
 }
 
 .img-item{
@@ -54,9 +54,9 @@
     padding: 8px 14px; 
     color: white; 
     border-radius: 5px;
+    float: right;
 }
 
 .save-btn{
-    margin-left: 200px;
     margin-right: 20px;
 }

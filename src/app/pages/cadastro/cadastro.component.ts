@@ -12,6 +12,7 @@ import { CadastroService } from 'src/app/services/cadastro/cadastro.service';
 export class CadastroComponent implements OnInit {
 
   user = {} as any;
+  senhaInvalida: any;
 
   constructor(private cadastroService : CadastroService, private router : Router) {
 
@@ -20,6 +21,9 @@ export class CadastroComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  voltar(){
+    this.router.navigate(['/login'])
+  }
 
   verificarSenhas(user: Usuario){
     if (this.user.senha === this.user.confirmation){
@@ -27,8 +31,13 @@ export class CadastroComponent implements OnInit {
       setTimeout(() => {
         this.router.navigate(['/login'])
       }, 3000);
-      
-      
+    } else {
+      this.senhaInvalida = document.getElementById('snackbar');
+
+      this.senhaInvalida.className = "Show";
+      setTimeout(() => {
+        this.senhaInvalida.className = this.senhaInvalida.className.replace("show", "");
+      }, 3000);
     }
   }
 

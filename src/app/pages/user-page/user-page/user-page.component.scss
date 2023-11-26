@@ -3,7 +3,8 @@ body {
     margin: 0;
     padding: 0;
     background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(73,5,68,1) 86%);
-    height: 100%;
+    height: auto;
+    min-height: 100%;
 }
 
 header {
@@ -94,6 +95,8 @@ nav a {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height: 95%;
+    padding-bottom: 70px;
 }
 
 footer {

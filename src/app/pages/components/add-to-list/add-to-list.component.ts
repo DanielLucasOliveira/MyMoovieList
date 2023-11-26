@@ -21,6 +21,8 @@ export class AddToListComponent implements OnInit {
   @Input() criandoItem!: ItemLista;
   @Input() listaSelecionada!: number;
   @Input() mostrar: boolean = false;
+  @Input() changeTop: string = '';
+  @Input() changePosition: string = '';
   @Output() mostrarChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   getID() {

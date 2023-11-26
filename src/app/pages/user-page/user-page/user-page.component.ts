@@ -1,4 +1,4 @@
-import { Component, OnInit,  QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit,  Output,  QueryList, ViewChildren } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListaDto } from 'src/app/dto/lista-dto';
 import { Usuario } from 'src/app/dto/usuario';
@@ -81,6 +81,7 @@ export class UserPageComponent implements OnInit {
 
   ativarListar(listaId: number){
     this.listaAtual = 0;
+    this.mostrarCriarLista = false
     setTimeout(() => {
       this.listaAtual = listaId;
     }, 300);
