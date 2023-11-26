@@ -63,6 +63,7 @@ export class AddToListComponent implements OnInit {
       this.criandoItem.urlImagem = this.cardItem.urlImagem;
     }
     if (this.criandoItem.id != null) {
+      alert('chega aqui para editar')
       let idLista = this.existeNaLista(this.criandoItem.id);
       if (idLista != -1) {
         try {
@@ -78,7 +79,12 @@ export class AddToListComponent implements OnInit {
       }
     } else {
       try {
-        const idListaSelecionada = Number(this.listaSelecionada.toString().split(":", 2)[1].trim());
+        let idListaSelecionada = 0;
+        try {
+          idListaSelecionada = Number(this.listaSelecionada.toString().split(":", 2)[1].trim());
+        } catch (error) {
+          idListaSelecionada = this.listaSelecionada;
+        }
         this.listaService.adicionarItem(idListaSelecionada, Array.of(this.criandoItem), 'sessionid').subscribe((resultado: string) => {
           this.resultadoBotaoAdicionar = `${this.cardItem?.nome} adicionado. lista atualizada`;
           this.resultadoBotaoAdicionarChange.emit(this.resultadoBotaoAdicionar);

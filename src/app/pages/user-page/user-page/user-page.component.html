@@ -36,9 +36,19 @@
     </section>
 
     <section class="main-content">
-        <ng-container *ngIf="listaAtual > 0">
+        <ng-container *ngIf="listaAtual > 0;">
             <app-get-list [idLista]="listaAtual" [idUsuario]="getID()" [hasPrivilegio]="hasPrivilegio"></app-get-list>
         </ng-container>
+        <ng-container *ngIf="listaAtual == 0">
+
+            <div *ngFor="let card of cardsLogUsuario" style="background-color: rgb(44, 21, 46); color: #fff; border-radius: 4px; width: 600px; height: 75px; justify-content: center; ">
+                <img src="{{card.urlImagemFilme}}" alt="" width="50" height="70" style="margin-right: 1rem;">
+                <a href="/userPage/{{card.idUsuario}}" style="color: rgb(0, 132, 255); text-decoration: none;">{{card.nomeUsuario}}</a>
+                {{card.acao}}
+                <a href="/filme/{{card.idFilme}}/{{slugify(card.nomeFilme)}}" style="color: rgb(255, 102, 0); text-decoration: none;">{{card.nomeFilme}}</a>
+            </div>
+        </ng-container>
+
     </section>
 
     <footer>

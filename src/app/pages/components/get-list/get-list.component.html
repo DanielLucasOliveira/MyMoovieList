@@ -46,7 +46,7 @@
         </div>
     </div>
 </div>
-<div class="button-delete">
+<div class="button-delete" *ngIf="hasPrivilegio">
     <button class="save-btn" type="submit" (click)="deleteLista()">Excluir Lista</button>
 </div>
 <app-modal [(mostrar)]="mostrarAddList">
