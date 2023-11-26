@@ -4,4 +4,6 @@ export interface CardFilmeSerie {
     descricao: string;
     urlImagem: string;
     urlCapa: string;
+    nome: string;
+    slugifiedNome: string;
 }
