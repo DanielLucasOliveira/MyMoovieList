@@ -3,6 +3,7 @@ import { ListCardShow } from 'src/app/dto/list-card-show';
 import { CardShow } from 'src/app/dto/card-show';
 import { ItemLista } from 'src/app/dto/item-lista';
 import { AddToListComponent } from '../add-to-list/add-to-list.component';
+import { LocalStorageService } from 'src/app/services/localstorage/local-storage.service';
 
 @Component({
   selector: 'result-search',
@@ -17,12 +18,21 @@ export class ResultSearchCardComponent {
   itemCriando!: ItemLista;
   @ViewChildren(AddToListComponent) addToList!: QueryList<AddToListComponent>
 
+  constructor(private localStorageService: LocalStorageService){ }
 
   abreAddToList(card: CardShow){
     this.addToList.forEach( c => { c.reset() })
     this.resetaValoresItem();
     this.cardAtual = card;
     this.mostrarAddList = true;
+  }
+
+  isLogado(){
+    try{
+      return this.localStorageService.getUsuario() && this.localStorageService.getUsuario() != '';
+    } catch (err) {
+      return false;
+    }
   }
 
   validaResultadoAdicionar(){
