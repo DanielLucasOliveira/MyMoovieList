@@ -18,15 +18,13 @@
             <div class="populares">
                 <h2>Filmes Populares</h2>
                 <div class="lista-populares">
-                    <ul *ngFor="let movie of populares" style="display: flex;">
+                    <ul *ngFor="let movie of populares">
                         <li>
-                            <a class="card" href="/filme/{{movie.id}}/{{movie.nome}}" style="width: 90%; float: left;">
-                                <img src="{{movie.urlImagem}}" alt="">
+                            <a [routerLink]="['/filme', movie.id, movie.titulo]">
+                                <img class="capa" src="{{movie.urlCapa}}" alt="">
                             </a>
                         </li>
-                        <div>
-                            <li>{{movie.nome}}</li>
-                        </div>
+                        <li class="titulo">{{movie.titulo}}</li>
                     </ul>
                 </div>
 
@@ -35,7 +33,7 @@
         </div>
     </div>
 
-    <footer>
+    <footer style="z-index: 2;">
         <p>&copy; 2023 MyMoovieList. Todos os direitos reservados.</p>
     </footer>
 </body>

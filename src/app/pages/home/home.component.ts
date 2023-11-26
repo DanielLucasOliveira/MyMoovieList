@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CardFilmeSerie } from 'src/app/dto/card-filme-serie';
-import { CardShow } from 'src/app/dto/card-show';
 import { CardService } from 'src/app/services/card/card.service';
 
 @Component({
@@ -11,14 +10,13 @@ import { CardService } from 'src/app/services/card/card.service';
 export class HomeComponent implements OnInit{
 
   populares: CardFilmeSerie[] = [];
-  total: any;
   constructor(private movieService : CardService){
 
   }
   ngOnInit(): void {
     this.movieService.pesquisarPopulares().subscribe((movie: CardFilmeSerie[]) => {
-      this.populares = movie;
-      console.log(movie);
+      this.populares = movie; 
+      console.log(this.populares);
     })
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Usuario } from 'src/app/dto/usuario';
 import { CadastroService } from 'src/app/services/cadastro/cadastro.service';
 import { LocalStorageService } from 'src/app/services/localstorage/local-storage.service';
 
@@ -11,6 +12,7 @@ import { LocalStorageService } from 'src/app/services/localstorage/local-storage
 export class EditarPerfilComponent implements OnInit {
 
   user = {} as any;
+  editUser = {} as Usuario;
   usuarioLogado: any;
 
   constructor(private router : Router, private localStorageService: LocalStorageService, private cadastroService: CadastroService){}
@@ -21,6 +23,7 @@ export class EditarPerfilComponent implements OnInit {
       if(this.usuarioLogado && this.usuarioLogado != ''){
         this.user.nome = this.usuarioLogado.nome;
         this.user.email = this.usuarioLogado.email;
+        this.editUser.id = this.usuarioLogado.id
       } else {
         this.router.navigate(['/'])
       }

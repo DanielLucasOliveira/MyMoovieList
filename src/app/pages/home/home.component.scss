@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0 0 10px 0;
     height: auto;
-    background: linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(104,43,140,1) 59%, rgba(110,0,142,1) 92%);
+    background: linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(73,5,68,1) 86%);
     min-height: 100%;
 }
 
@@ -66,8 +66,6 @@ nav a {
     }
 }
 
-
-
 .content {
     max-width: 60%;
     margin: 20px auto;
@@ -89,6 +87,8 @@ nav a {
     border-radius: 8px;
     padding-top: 30px;
     min-height: 750px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
 }
 
 .populares{
@@ -98,6 +98,7 @@ nav a {
 .populares img {
     max-width: 300px;
     max-height: 300px;
+    border-radius: 5px;
 }
 
 .populares ul {
@@ -106,6 +107,15 @@ nav a {
     max-width: 300px;
     min-width: 300px;
     margin: auto;
+    box-shadow: #fff;
+}
+
+.capa{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.capa:hover{
+    border: 2px solid #fff;
 }
 
 .lista-populares {
@@ -115,7 +125,7 @@ nav a {
 }
 
 .titulo{
-    margin-top: 30px;
+    margin: 20px 0;
     font-size: 17px;
 }
 

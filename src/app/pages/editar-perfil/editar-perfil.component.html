@@ -24,6 +24,7 @@
             <input type="password" id="confirmation" name="confirmation" required [(ngModel)]="user.novaSenhaConfirmation">
 
             <input type="submit" value="Atualizar Cadastro">
+            <a [routerLink]="['/userPage', editUser.id]"><input type="submit" value="Voltar" style="width: 100%;"></a>
         </form>
     </div>
 </body>
