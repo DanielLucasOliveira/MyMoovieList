@@ -90,6 +90,7 @@ export class UserPageComponent implements OnInit {
               urlImagemFilme: filme.urlCapa,
               dataAcao: this.converteTempoDataAcao(log.dataAcao)
             })
+            this.cardsLogUsuario.sort((a: CardActivity, b: CardActivity) => a.idLog - b.idLog)
           }
         )
       })
