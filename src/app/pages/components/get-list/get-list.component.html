@@ -50,7 +50,8 @@
     <button class="save-btn" type="submit" (click)="deleteLista()">Excluir Lista</button>
 </div>
 <app-modal [(mostrar)]="mostrarAddList">
-    <add-to-list [changeTop]="'-500px'" [changePosition]="'absolute'" [cardItem]="cardAtual" [criandoItem]="exibirItem"
+    <add-to-list [changeTop]="'-500px'" [changePosition]="'absolute'" 
+        [cardItem]="cardAtual" [criandoItem]="exibirItem" [(mostrar)]="mostrarAddList"
         [(resultadoBotaoAdicionar)]="resultadoBotaoAdicionar" [listaSelecionada]="lista.id"
         [idUsuario]="idUsuario"></add-to-list>
 </app-modal>

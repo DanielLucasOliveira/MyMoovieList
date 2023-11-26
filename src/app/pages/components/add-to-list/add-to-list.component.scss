@@ -1,4 +1,5 @@
 #adicionarItem{
+    position: relative;
     padding: 24px;
     width: 1000px;
     height: 450px;
@@ -6,7 +7,7 @@
     background: #151F2E;
     border: 2px solid;
     margin: auto;
-    z-index: 0;
+    z-index: 2;
 }
 
 .cobertura {

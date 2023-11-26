@@ -7,6 +7,15 @@
 </head>
 <body>
     <app-navbar></app-navbar>
+    <app-modal [(mostrar)]="mostrarAddList">
+        <add-to-list 
+            [changeTop]="'500px'" [changePosition]="'absolute'" [cardItem]="cardAtual" 
+            [(mostrar)]="mostrarAddList" [(resultadoBotaoAdicionar)]="resultadoBotaoAdicionar">
+        </add-to-list>
+    </app-modal>
+    <ng-container *ngIf="resultadoBotaoAdicionar ? validaResultadoAdicionar() : false">
+        <div class="alert alert-success" role="alert">{{resultadoBotaoAdicionar}}</div>
+    </ng-container>
     <div class="main">
         <div class="header" [style.background-image]="'url(' + filme.urlImagemFundo + ')'">
             <div class="header-content" style="display: grid; grid-column-gap: 30px;   grid-template-columns: 215px auto;">
@@ -27,7 +36,7 @@
                     <div class="capa-wrapt-inner" style="position: absolute;">
                         <div class="card-info">
                             <div class="acoes">
-                                <button class="save-btn">Adicionar</button>
+                                <button class="save-btn" (click)="mostrarAddToList()">Adicionar</button>
                             </div>
                             <label>
                                 <h2>Titulo Original</h2>

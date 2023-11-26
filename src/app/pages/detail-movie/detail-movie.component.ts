@@ -14,8 +14,10 @@ export class DetailMovieComponent implements OnInit {
   total: any;
   totalCast: any;
   cardAtual!: CardShow;
+  resultadoBotaoAdicionar!: string;
   mostrarAddList: boolean = false;
   @ViewChildren(AddToListComponent) addToList!: QueryList<AddToListComponent>
+  
   constructor(private router: Router, private route : ActivatedRoute, private detalheService: DetalhesService){};
 
   ngOnInit() {
@@ -25,6 +27,24 @@ export class DetailMovieComponent implements OnInit {
         this.filme = result;
         this.total = Object.keys(this.filme.diretoresEscritores)
         this.totalCast = Object.keys(this.filme.elencoPrincipal)
-      });
+        this.cardAtual = {
+          tipo: "filme",
+          id: Number(idMovie),
+          nome: result.titulo,
+          cargoOuDescricao: result.descricao,
+          slugifiedNome: result.tituloOriginal,
+          urlImagem: result.urlCapa,
+        }
+    });
+  }
+
+  validaResultadoAdicionar(){
+    this.mostrarAddList = false;
+    setTimeout(() => { this.resultadoBotaoAdicionar = ''; }, 3000);
+    return this.resultadoBotaoAdicionar != 'erro' && this.resultadoBotaoAdicionar != '';
+  }
+
+  mostrarAddToList(){
+    this.mostrarAddList = true;
   }
 }

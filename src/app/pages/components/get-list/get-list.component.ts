@@ -28,11 +28,11 @@ export class GetListComponent implements OnInit {
   exibirItem!: ItemLista;
   cardAtual!: CardShow;
   ajuste: boolean | undefined;
+
   constructor(private listaService :ListaService, public dialog: MatDialog, public router: Router, private userPage: UserPageComponent){};
 
   ngOnInit(): void {
     this.carregarLista();
-    
   }
 
   validaResultadoAdicionar(){
@@ -67,7 +67,7 @@ export class GetListComponent implements OnInit {
         slugifiedNome: 'string',
         urlImagem: item.urlImagem
       }
-      this.ajuste = true;
+    this.ajuste = true;
   }
 
   deleteItem(idLIsta: number, item: ItemLista){
@@ -78,6 +78,7 @@ export class GetListComponent implements OnInit {
       });
     }
   }
+  
   deleteLista() {
     const confirmacao = confirm('Tem certeza que deseja excluir a lista? Todos os itens serão excluídos ao confirmar essa ação');
   

@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CardShow } from 'src/app/dto/card-show';
 import { ItemLista } from 'src/app/dto/item-lista';
 import { ListaDto } from 'src/app/dto/lista-dto';
 import { ListaService } from 'src/app/services/lista/lista.service';
+import { LocalStorageService } from 'src/app/services/localstorage/local-storage.service';
 
 @Component({
   selector: 'add-to-list',
@@ -14,6 +15,7 @@ export class AddToListComponent implements OnInit {
 
   usuario: any;
   listasUsuario!: ListaDto[];
+  salvaItemAnterior!: ItemLista;
   @Input() resultadoBotaoAdicionar!: string;
   @Output() resultadoBotaoAdicionarChange: EventEmitter<string> = new EventEmitter<string>();
   @Input() idUsuario!: number;
@@ -27,10 +29,10 @@ export class AddToListComponent implements OnInit {
 
   getID() {
     if (this.idUsuario == null)
-      this.idUsuario = Number(this.route.snapshot.paramMap.get('idSession'));
+      this.idUsuario = this.localStorageService.getUsuario().id;
   }
 
-  constructor(private listaService: ListaService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private listaService: ListaService, private route: ActivatedRoute, private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
     this.getID()
@@ -38,7 +40,7 @@ export class AddToListComponent implements OnInit {
       this.listaService.visualizarLista(this.listaSelecionada).subscribe(rst => {
         this.listasUsuario = Array.of(rst);
       })
-    } else if (this.idUsuario != null && this.idUsuario != 0) {//TODO: VALIDAR LINHA
+    } else if (this.idUsuario != null && this.idUsuario != 0) {
       this.listaService.visualizarListasUsuario(this.idUsuario).subscribe(rst => {
         this.listasUsuario = rst;
         this.listaSelecionada = this.listasUsuario[0].id;
@@ -76,7 +78,8 @@ export class AddToListComponent implements OnInit {
       }
     } else {
       try {
-        this.listaService.adicionarItem(this.listaSelecionada, Array.of(this.criandoItem), 'sessionid').subscribe((resultado: string) => {
+        const idListaSelecionada = Number(this.listaSelecionada.toString().split(":", 2)[1].trim());
+        this.listaService.adicionarItem(idListaSelecionada, Array.of(this.criandoItem), 'sessionid').subscribe((resultado: string) => {
           this.resultadoBotaoAdicionar = `${this.cardItem?.nome} adicionado. lista atualizada`;
           this.resultadoBotaoAdicionarChange.emit(this.resultadoBotaoAdicionar);
         })
@@ -104,7 +107,6 @@ export class AddToListComponent implements OnInit {
   }
 
   existeNaLista(itemId: number): number {
-
     for (const lista of this.listasUsuario) {
       for (const item of lista.itens) {
         if (item.id == itemId) {
