@@ -77,3 +77,11 @@ a{
     font-size: 1.2rem;
     color: rgb(114,138,161);
 }
+
+#alert{
+    max-width: 300px;
+    margin-left: 82%;
+    transform: (82%);
+    z-index: 10;
+    position: absolute;
+}

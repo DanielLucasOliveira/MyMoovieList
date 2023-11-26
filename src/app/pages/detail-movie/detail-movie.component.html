@@ -14,7 +14,7 @@
         </add-to-list>
     </app-modal>
     <ng-container *ngIf="resultadoBotaoAdicionar ? validaResultadoAdicionar() : false">
-        <div class="alert alert-success" role="alert">{{resultadoBotaoAdicionar}}</div>
+        <div id="alert" class="alert alert-success" role="alert">{{resultadoBotaoAdicionar}}</div>
     </ng-container>
     <div class="main">
         <div class="header" [style.background-image]="'url(' + filme.urlImagemFundo + ')'">
@@ -35,7 +35,7 @@
                 <div class="capa-wrapt">
                     <div class="capa-wrapt-inner" style="position: absolute;">
                         <div class="card-info">
-                            <div class="acoes">
+                            <div class="acoes" style="margin: auto; margin-bottom: 15px;">
                                 <button class="save-btn" (click)="mostrarAddToList()">Adicionar</button>
                             </div>
                             <label>
