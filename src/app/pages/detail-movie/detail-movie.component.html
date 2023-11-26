@@ -28,8 +28,8 @@
         <div class="content">
             <div class="sidebar">
                 <div class="capa-wrapt">
-                    <div class="capa-wrapt-inner" style="position: absolute;">
-                        <img src="{{filme.urlCapa}}" width="215px" height="322px" alt="" class="capa">
+                    <div class="capa-wrapt-inner" >
+                        <img src="{{filme.urlCapa}}" alt="" class="capa">
                     </div>
                 </div>
                 <div class="capa-wrapt">
@@ -46,7 +46,7 @@
                                 <h2>Gênero(s)</h2>
                                 <h3><span *ngFor="let genero of filme.generos">{{genero}} <br></span></h3>
                             </label>
-                            <label class="description">
+                            <label>
                                 <h2>Resumo</h2>
                                 <h3>{{filme.descricao}}</h3>
                             </label>
@@ -70,16 +70,16 @@
                 <h2>Staff</h2>
                 <div class="staff" >
                     <div class="ajuste">
-                        <ul *ngFor="let propriedade of total" style="display: flex;">
+                        <ul *ngFor="let propriedade of total">
                             <li><img src="{{filme.diretoresEscritores[propriedade].urlImagem}}"></li>
-                            <div style="margin-left: 20px;">
+                            <div style="width: 200px;">
                                 <li>{{filme.diretoresEscritores[propriedade].cargo}}</li>
                                 <li>{{filme.diretoresEscritores[propriedade].nome}}</li>
                             </div>
                         </ul>
-                        <ul *ngFor="let key of totalCast" style="display: flex;">
+                        <ul *ngFor="let key of totalCast">
                             <li><img src="{{filme.elencoPrincipal[key].urlImagem}}"></li>
-                            <div style="margin-left: 20px;">
+                            <div style="width: 200px;">
                                 <li>{{filme.elencoPrincipal[key].cargo}}</li>
                                 <li>{{filme.elencoPrincipal[key].nome}}</li>
                             </div>
