@@ -6,4 +6,5 @@ export interface CardActivity {
     nomeFilme: string,
     idFilme: number;
     urlImagemFilme: string;
+    dataAcao: string;
 }

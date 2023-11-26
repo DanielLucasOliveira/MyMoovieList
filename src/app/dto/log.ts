@@ -3,4 +3,5 @@ export interface Log {
     idUsuario: number;
     acao: string;
     tmdbFilme: number;
+    dataAcao: Date;
 }
